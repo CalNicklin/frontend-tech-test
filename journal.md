@@ -39,3 +39,6 @@ I've setup my directory structure with path aliases, Tsconfig, and added a .env 
 Setup basic CI.
 
 I've also added a src/env.ts file to type the env variables, ensuring that the env variables are valid and that the app will exit if they are not.
+
+Use my friend AI to update the README.md file with the new project structure.
+
