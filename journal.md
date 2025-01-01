@@ -23,6 +23,10 @@ Then I can get down to the actual business logic of the SDui service. It will do
 
 Should be straight forward to implement this in a TDD approach, basically just testing that the data is transformed correctly, and that invalid data is handled gracefully.
 
+This service will be aware of the design system, and will pass component props such as 'type', 'variant', 'size', 'color', etc. which will be used in my component with cva to handle the styling.
+
+With this implementation, I'll have type safety for the data AND the UI components, which means if short for time, I'll at least have static type checking across my app and I can have a pretty high level of confidence in browser level testing.
+
 Nearly there - will then need to integration level implement the actual rendering function, test it with mock schema and handle loading and error states.
 
 If i've got time, I'll also implement some kind of UI testing framework, maybe Playwright - in fact, this might take precedence over the rendering function tests because Playwright / browser level testing will actually cover the integration of the rendering function with the UI.
