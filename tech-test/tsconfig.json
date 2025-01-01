@@ -13,7 +13,10 @@
     "composite": true,
 
     "paths": {
-      "@/*": ["."]
+      "@/*": ["./*"],
+      "@client/*": ["./src/*"],
+      "@shared/*": ["./shared/*"],
+      "@server/*": ["./server/*"]
     },
 
     /* Bundler mode */
