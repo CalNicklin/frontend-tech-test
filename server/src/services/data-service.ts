@@ -1,4 +1,6 @@
 import { env } from "@/server/env";
+import { CreditReportSchema } from "@/shared/schemas";
+import type { CreditReport } from "@/shared/types";
 
 export class DataService {
   private cache = new Map<string, unknown>();
@@ -25,7 +27,7 @@ export class DataService {
   private async fetchCreditReport(): Promise<void> {
     try {
       const response = await fetch(env.CREDIT_REPORT_API_URL);
-      const data = await response.json() as z.infer<typeof CreditReportSchema>;
+      const data = await response.json() as CreditReport;
       const parsedData = CreditReportSchema.parse(data);
       this.cache.set('creditReport', parsedData);
     } catch (error) {
@@ -33,8 +35,9 @@ export class DataService {
     }
   }
 
-  public getCreditReport() {
-    return this.cache.get('creditReport') as z.infer<typeof CreditReportSchema> | undefined;
+  public getCreditReport(): CreditReport | undefined {
+
+    return this.cache.get('creditReport') as CreditReport
   }
 }
 

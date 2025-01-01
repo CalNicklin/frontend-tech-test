@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi, beforeAll, afterAll } from 'vitest';
 import { env } from '@/server/env';
 import { dataService } from './data-service';
+import mockReport from './mocks/credit-response.json';
 
 // Reset mocks between tests
 beforeEach(() => {
@@ -17,16 +18,12 @@ describe('DataService', () => {
   afterAll(() => {
     global.fetch = originalFetch;
   });
-  
+
   it('should fetch data every 30 seconds', async () => {
     vi.useFakeTimers();
 
-    const mockResponse = {
-      creditScore: 100,
-      insight: 'This is a test insight',
-    };
+    const mockResponse = mockReport
 
-    // Better fetch mock implementation
     global.fetch = vi.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true,
@@ -48,7 +45,20 @@ describe('DataService', () => {
     vi.useRealTimers();
   });
 
-  it.todo('should cache data');
+  it('should cache data', async () => {
+    const mockResponse = mockReport
+  
+    global.fetch = vi.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve(mockResponse),
+      } as Response)
+    );
+
+    await dataService.init();
+    expect(dataService.getCreditReport()).toEqual(mockResponse);
+  });
 
   it.todo('should return cached data if available');
 
@@ -60,7 +70,7 @@ describe('DataService', () => {
 
   it.todo('should return an error if the data cannot be fetched');
 
-  it.todo('should return a zod error if the data cannot be parsed');
+  it('should return a zod error if the data cannot be parsed');
 
   it.todo('should return an undefined value if the cache is empty');
 });

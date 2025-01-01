@@ -53,5 +53,8 @@ Updated thinking on CVA.
 
 Starting to actually code! Starting with the server. 
 
+Implemented it.todo for the data service, now working through it. 
+
+Converted the mock report to a zod schema.
 
 

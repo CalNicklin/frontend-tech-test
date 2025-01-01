@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "dist",
     "useDefineForClassFields": true,
   },
