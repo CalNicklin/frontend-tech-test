@@ -30,3 +30,12 @@ With this implementation, I'll have type safety for the data AND the UI componen
 Nearly there - will then need to integration level implement the actual rendering function, test it with mock schema and handle loading and error states.
 
 If i've got time, I'll also implement some kind of UI testing framework, maybe Playwright - in fact, this might take precedence over the rendering function tests because Playwright / browser level testing will actually cover the integration of the rendering function with the UI.
+
+
+Work log:
+
+I've setup my directory structure with path aliases, Tsconfig, and added a .env file.
+
+Setup basic CI.
+
+I've also added a src/env.ts file to type the env variables, ensuring that the env variables are valid and that the app will exit if they are not.
