@@ -50,7 +50,7 @@ pnpm build:server
 
 ## Project Structure
 ```
-├── src/              # Client-side code
+├── client/              # Client-side code
 ├── server/           # Node.js server (Hono)
 ├── shared/           # Shared types and utilities
 └── public/           # Static assets

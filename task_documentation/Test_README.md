@@ -16,7 +16,7 @@ At ClearScore we have created our own version of what is known as a _Design Syst
 
 For your submission you will build a microcosm of this Design System.  
 
-_Please push any code changes to **this** repo, which has been setup as private so only you and ClearScore can see it._
+_Please push any code changes to **this** repo, which has been setup as **private** so only you and ClearScore can see it._
 
 ### The Component
 

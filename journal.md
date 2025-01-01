@@ -25,6 +25,9 @@ Should be straight forward to implement this in a TDD approach, basically just t
 
 This service will be aware of the design system, and will pass component props such as 'type', 'variant', 'size', 'color', etc. which will be used in my component with cva to handle the styling.
 
+**Edit:**
+Thinking about this, I'm not going to implement CVA. I think it will limit the advantages of the SDUI approach i.e. dynamic styling. I'll just use the tailwind classes directly in the component.
+
 With this implementation, I'll have type safety for the data AND the UI components, which means if short for time, I'll at least have static type checking across my app and I can have a pretty high level of confidence in browser level testing.
 
 Nearly there - will then need to integration level implement the actual rendering function, test it with mock schema and handle loading and error states.
@@ -41,4 +44,12 @@ Setup basic CI.
 I've also added a src/env.ts file to type the env variables, ensuring that the env variables are valid and that the app will exit if they are not.
 
 Use my friend AI to update the README.md file with the new project structure.
+
+Just restructued the project so that test docs are in the root, and the src folder is just the source code.
+
+Updated thinking on CVA.
+
+Starting to actually code! Starting with the server. 
+
+
 
