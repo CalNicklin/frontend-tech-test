@@ -34,5 +34,6 @@
     "vite": "^6.0.5",
     "vitest": "^2.1.8"
   },
-  "prettier": "@vercel/style-guide/prettier"
+  "prettier": "@vercel/style-guide/prettier",
+  "packageManager": "pnpm@9.4.0"
 }

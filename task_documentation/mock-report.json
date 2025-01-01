@@ -1,0 +1,457 @@
+{
+  "accounts": [
+    {
+      "accountCategory": "credit_cards",
+      "accountNumber": "******58",
+      "address": {
+        "buildingName": "15C",
+        "format": "UK",
+        "postcode": "SE22 0SE",
+        "street": "FRIAR ROAD",
+        "town": "LONDON"
+      },
+      "contentKey": "barclaycard",
+      "displayName": "Barclaycard",
+      "key": "2e6e5c37e1259a7cc3e4635756dd26d2",
+      "name": "MR SIMON EVERYTHING",
+      "overview": {
+        "lastUpdated": "2016-10-19",
+        "utilization": 0.07,
+        "balance": {
+          "amount": 423,
+          "currency": "GBP"
+        },
+        "frequency": "monthly",
+        "limit": {
+          "amount": 6500,
+          "currency": "GBP"
+        },
+        "accountOpened": "2014-08-01"
+      },
+      "paymentHistory": [
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 10,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 11,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 12,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 1,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 2,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 3,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 4,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 5,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 6,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 7,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 8,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 10,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 11,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 12,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 1,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 2,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 3,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 4,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 5,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 6,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 7,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 8,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2016
+        }
+      ],
+      "status": "k",
+      "supplierName": "Barclaycard"
+    },
+    {
+      "accountCategory": "current_accounts",
+      "accountNumber": "********-4",
+      "address": {
+        "buildingName": "15C",
+        "format": "UK",
+        "postcode": "SE22 0SE",
+        "street": "FRIAR ROAD",
+        "town": "LONDON"
+      },
+      "contentKey": "barclays",
+      "displayName": "Barclays",
+      "key": "78b9ce264b1916338385c541a8f1f48e",
+      "name": "MR SIMON EVERYTHING",
+      "overview": {
+        "lastUpdated": "2016-09-19",
+        "balance": {
+          "amount": 615,
+          "currency": "GBP"
+        },
+        "frequency": "monthly",
+        "accountOpened": "2013-10-19"
+      },
+      "paymentHistory": [
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2013
+        },
+        {
+          "month": 10,
+          "paymentStatus": "on_time",
+          "year": 2013
+        },
+        {
+          "month": 11,
+          "paymentStatus": "on_time",
+          "year": 2013
+        },
+        {
+          "month": 12,
+          "paymentStatus": "on_time",
+          "year": 2013
+        },
+        {
+          "month": 1,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 2,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 3,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 4,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 7,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 8,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 10,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 11,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 12,
+          "paymentStatus": "on_time",
+          "year": 2014
+        },
+        {
+          "month": 1,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 2,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 3,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 4,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 5,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 6,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 7,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 8,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 9,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 10,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 11,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 12,
+          "paymentStatus": "on_time",
+          "year": 2015
+        },
+        {
+          "month": 1,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 2,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 3,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 4,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 5,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 6,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 7,
+          "paymentStatus": "on_time",
+          "year": 2016
+        },
+        {
+          "month": 8,
+          "paymentStatus": "on_time",
+          "year": 2016
+        }
+      ],
+      "status": "k",
+      "supplierName": "Barclays Bank Plc"
+    }
+  ],
+  "personal": {
+    "electoralRoll": [
+      {
+        "address": {
+          "buildingName": "15C",
+          "format": "UK",
+          "postcode": "SE22 0SE",
+          "street": "FRIAR ROAD",
+          "town": "LONDON"
+        },
+        "contextKey": "80aebdeafae0445200040e84ccc31230",
+        "current": true,
+        "endDateString": "2017",
+        "name": "MR SIMON EVERYTHING",
+        "startDateString": "2015",
+        "supplied": "true"
+      }
+    ],
+    "publicInfo": {
+      "courtAndInsolvencies": [
+        {
+          "name": "MR SIMON EVERYTHING",
+          "dob": "1953-08-01",
+          "courtName": "OLD LOCKUP COURT, YORKSHIRE",
+          "contextKey": "37bf427c8e3fac1f6adfd662a1e6d4a4",
+          "dischargeDate": "2016-07-19",
+          "caseReference": "563829PX",
+          "amount": {
+            "amount": 14,
+            "currency": "GBP"
+          },
+          "address": {
+            "buildingName": "15C",
+            "format": "UK",
+            "postcode": "SE22 0SE",
+            "street": "FRIAR ROAD",
+            "town": "LONDON"
+          },
+          "type": {
+            "code": "court_judgement",
+            "details": {
+              "catDesc": "Court Judgement (England, Wales and NI)"
+            }
+          },
+          "startDate": "2016-04-19"
+        },
+        {
+          "name": "MR SIMON EVERYTHING",
+          "dob": "1953-08-01",
+          "courtName": "OLD LOCKUP COURT, YORKSHIRE",
+          "contextKey": "839135645549fe0a9c09748d4dbc55f8",
+          "caseReference": "1234566PX",
+          "amount": {
+            "amount": 1,
+            "currency": "GBP"
+          },
+          "address": {
+            "buildingName": "15C",
+            "format": "UK",
+            "postcode": "SE22 0SE",
+            "street": "FRIAR ROAD",
+            "town": "LONDON"
+          },
+          "type": {
+            "code": "court_judgement",
+            "details": {
+              "catDesc": "Court Judgement (England, Wales and NI)"
+            }
+          },
+          "startDate": "2015-10-19"
+        },
+        {
+          "name": "MR SIMON EVERYTHING",
+          "dob": "1953-08-01",
+          "courtName": "COUNTY COURT, DURHAM",
+          "contextKey": "457ae4db9b76bd4ec452e4f2b59e76bf",
+          "dischargeDate": "2015-10-19",
+          "caseReference": "20208465",
+          "amount": {
+            "amount": 0,
+            "currency": "GBP"
+          },
+          "address": {
+            "buildingName": "124",
+            "format": "UK",
+            "postcode": "TS21 4DT",
+            "street": "HIGH STREET, SEDGEFIELD",
+            "town": "COUNTY DURHAM"
+          },
+          "type": {
+            "code": "other"
+          },
+          "startDate": "2016-04-19"
+        }
+      ]
+    }
+  }
+}
