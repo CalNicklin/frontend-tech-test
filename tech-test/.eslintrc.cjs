@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve } = require('node:path');
 
 const appProject = resolve(__dirname, './tsconfig.app.json');
 const nodeProject = resolve(__dirname, './tsconfig.node.json');
