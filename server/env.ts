@@ -14,7 +14,8 @@ const EnvSchema = z.object({
   NODE_ENV: z.string().default("development"),
   PORT: z.coerce.number().default(3000),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"]),
-  EXTERNAL_API_URL: z.string().url(),
+  CREDIT_REPORT_API_URL: z.string().url(),
+  INSIGHT_API_URL: z.string().url(),
 })
 
 export type Env = z.infer<typeof EnvSchema>;
