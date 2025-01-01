@@ -27,6 +27,8 @@ This service will be aware of the design system, and will pass component props s
 
 **Edit:**
 Thinking about this, I'm not going to implement CVA. I think it will limit the advantages of the SDUI approach i.e. dynamic styling. I'll just use the tailwind classes directly in the component.
+**Edit again:**
+I've changed my mind again. After doing some more digging into SDui, reading e.g. https://github.com/csmets/Server-Driven-UI/blob/master/docs/README.md I actually think CVA is a good decision. "The server should dictate the presentation, but should never control the design." Therefore the variants used by CVA can be passed from the server, and the client components handle the design classes.
 
 With this implementation, I'll have type safety for the data AND the UI components, which means if short for time, I'll at least have static type checking across my app and I can have a pretty high level of confidence in browser level testing.
 
