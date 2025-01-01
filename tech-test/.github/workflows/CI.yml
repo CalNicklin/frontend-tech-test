@@ -1,0 +1,100 @@
+name: CI Pipeline 🔍🧹🧪🎭
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.x
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Typecheck 🔍
+        run: pnpm run typecheck
+
+  lint:
+    runs-on: ubuntu-latest
+    env:
+      SKIP_ENV_VALIDATION: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.x
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint 🧹
+        run: pnpm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SKIP_ENV_VALIDATION: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.x
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Unit Tests 🧪
+        run: pnpm run test
+#   playwright_storybook:
+#     name: Playwright & Storybook 🎭
+#     timeout-minutes: 60
+#     runs-on: ubuntu-latest
+#     needs: [typecheck, lint, test]
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: pnpm/action-setup@v4
+#         with:
+#           version: 9
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 20.11.x
+#           cache: "pnpm"
+
+#       - name: Install dependencies
+#         run: pnpm install 
+#       - name: Install Playwright Browsers
+#         run: npx playwright install --with-deps
+#       - name: Playwright 🎭
+#         env:
+#           AUTH_COOKIE_NAME: ${{ secrets.AUTH_COOKIE_NAME }}
+#           AUTH_COOKIE_SIGNATURE_KEY_CURRENT: ${{ secrets.AUTH_COOKIE_SIGNATURE_KEY_CURRENT }}
+#           AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS: ${{ secrets.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS }}
+#         run: npm run playwright
+#       - name: Build Storybook
+#         run: npm run build-storybook
+#       - name: Storybook 🎭
+#         env:
+#           AUTH_COOKIE_NAME: ${{ secrets.AUTH_COOKIE_NAME }}
+#           AUTH_COOKIE_SIGNATURE_KEY_CURRENT: ${{ secrets.AUTH_COOKIE_SIGNATURE_KEY_CURRENT }}
+#           AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS: ${{ secrets.AUTH_COOKIE_SIGNATURE_KEY_PREVIOUS }}
+#         run: |
+#           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+#             "npx http-server storybook-static --port 6006 --silent" \
+#             "npx wait-on tcp:6006 && npm run test-storybook"
+#       - uses: actions/upload-artifact@v4
+#         if: always()
+#         with:
+#           name: playwright-report
+#           path: playwright-report/
+#           retention-days: 30
