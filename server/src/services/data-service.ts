@@ -4,10 +4,16 @@ import { CreditReportSchema } from "@shared/schemas";
 import { APIError } from "@server/src/services/error";
 import type { CreditReport } from "@shared/types";
 
+/**
+ * DataService is a singleton class that fetches and caches credit report data and insights.
+ * It has a simple cache that is used to store the credit report data.
+ * In reality this would likely be querying a database or some other data store.
+ */
 export class DataService {
   private cache = new Map<string, unknown>();
   private pollInterval = 30 * 1000; // 30 seconds
   private isPolling = false;
+  private error: Error | null = null;
 
   async init(): Promise<void> {
     if (this.isPolling) return;
@@ -37,7 +43,8 @@ export class DataService {
         if (response.ok) return response;
 
         if (i === retries - 1) {
-          throw new APIError(`Failed to fetch credit report: ${response.statusText}`, response.status);
+          this.error = new APIError(`Failed to fetch credit report: ${response.statusText}`, response.status);
+          throw this.error;
         }
       } catch (error) {
         if (i === retries - 1) throw error;
@@ -60,14 +67,18 @@ export class DataService {
       this.cache.set('creditReport', parsedData);
     } catch (error) {
       if (error instanceof APIError || error instanceof ZodError) {
+        this.error = error;
         throw error;
       }
-      throw new APIError('Failed to fetch credit report', 500);
+      this.error = new APIError('Failed to fetch credit report', 500);
+      throw this.error;
     }
   }
 
-  public getCreditReport(): CreditReport | undefined {
-
+  public getCreditReport(): CreditReport | Error | undefined {
+    if (this.error) {
+      return this.error;
+    }
     return this.cache.get('creditReport') as CreditReport
   }
 }

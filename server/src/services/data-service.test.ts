@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi, afterAll, fail } from 'vitest';
+import { describe, it, expect, beforeEach, vi, afterAll } from 'vitest';
 import { ZodError } from 'zod';
 import { env } from '@/server/env';
 import { CreditReportSchema } from '@/shared/schemas';
@@ -6,7 +6,6 @@ import { DataService } from './data-service';
 import mockReport from './mocks/credit-response.json';
 import { APIError } from './error';
 
-// Reset mocks between tests
 beforeEach(() => {
   vi.clearAllMocks();
 });
@@ -108,7 +107,7 @@ describe('DataService', () => {
     }
   });
 
-  it('should return an undefined value if the cache is empty', async () => {
+  it('should return an undefined value if the cache is empty', () => {
     expect(dataService.getCreditReport()).toBeUndefined();
   });
 });

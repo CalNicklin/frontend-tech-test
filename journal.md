@@ -57,4 +57,12 @@ Implemented it.todo for the data service, now working through it.
 
 Converted the mock report to a zod schema.
 
+Completed implementing the data service tests. Admit that it's very basic in it's implementation especially around fetching - I think out of scope for this UI focused test.
+
+Now working on the Hono app. Leaning on previous work I've done to implement the basic structure of this.
+
+I'm using the Hono router to implement the routes. I'm using the zod-openapi package to generate the type safety in route handlers - i'm not actually implementing the OpenAPI spec here (even though its generated), because of timing, but I like the API provided by the package and of course in production I'd be publishing  the OpenAPI spec too.
+
+
+
 
