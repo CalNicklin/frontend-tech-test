@@ -1,5 +1,6 @@
-import type { CreditReport, SduiSchema } from '@shared/types';
-import { Z } from 'vitest/dist/chunks/reporters.D7Jzd9GS.js';
+import { type z } from 'zod';
+import { type Status } from '@/shared/schemas';
+import type { CreditReport, SDUISchema } from '@shared/types';
 
 export class SDUIService {
   // Simulating CMS-defined content structure
@@ -30,29 +31,32 @@ export class SDUIService {
     }
   ] as const;
 
-  public generateSchema(report: CreditReport): SduiSchema {
+  public generateSchema(report: CreditReport): SDUISchema {
     return {
       type: 'screen',
-      title: 'Credit Report',
-      description: 'Your credit report',
-      insights: this.insightStructure.map(insight => ({
-        ...insight,
-        data: {
-          status: this.determineStatus(insight.category, report),
-          impact: insight.impact,
-          title: insight.title,
-          description: insight.description
+      elements: this.insightStructure.map(insight => ({
+        id: insight.id,
+        type: 'insightCard',
+        category: insight.category,
+        elements: [
+          { type: 'status', value: this.determineStatus(insight.category, report) },
+          { type: 'heading', text: insight.title },
+          { type: 'body', text: insight.description },
+          { type: 'impact', level: insight.impact },
+        ],
+        actions: {
+          onClick: { type: 'drawer', data: { report } }
         }
       }))
     };
   }
 
-  private determineStatus(category: string, report: CreditReport): 'positive' | 'negative' {
+  private determineStatus(category: string, report: CreditReport): z.infer<typeof Status>['value'] {
     switch (category) {
       case 'public_info':
         return report.personal.publicInfo.courtAndInsolvencies.length === 0
-          ? 'positive'
-          : 'negative';
+          ? 'on_track'
+          : 'off_track';
 
       case 'credit_usage':
         const hasHighUtilisation = report.accounts
@@ -61,15 +65,15 @@ export class SDUIService {
             const utilisation = card.overview.balance.amount / card.overview.limit.amount;
             return utilisation >= 0.5;
           });
-        return hasHighUtilisation ? 'negative' : 'positive';
+        return hasHighUtilisation ? 'off_track' : 'on_track';
 
       case 'electoral_roll':
         return report.personal.electoralRoll.some(r => r.current)
-          ? 'positive'
-          : 'negative';
+          ? 'on_track'
+          : 'off_track';
 
       default:
-        return 'negative';
+        return 'off_track';
     }
   }
 }

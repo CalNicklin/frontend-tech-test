@@ -1,6 +1,6 @@
 import type { z } from "zod";
-import type { CreditReportSchema, SduiSchema } from "./schemas";
+import type { CreditReportSchema, SDUISchema } from "./schemas";
 
 export type CreditReport = z.infer<typeof CreditReportSchema>;
 
-export type SduiSchema = z.infer<typeof SduiSchema>;
+export type SDUISchema = z.infer<typeof SDUISchema>;

@@ -153,16 +153,45 @@ export const CreditReportSchema = z.object({
   })
 })
 
-export const SduiSchema = z.object({
+// Atomic elements
+const Typography = z.object({
+  type: z.enum(['heading', 'body']),
+  text: z.string()
+});
+
+export const Status = z.object({
+  type: z.literal('status'),
+  value: z.enum(['on_track', 'off_track']),
+});
+
+const Impact = z.object({
+  type: z.literal('impact'),
+  level: z.enum(['high', 'medium', 'low'])
+});
+
+// Card elements can be composed in any order
+const CardElement = z.discriminatedUnion('type', [
+  Typography,
+  Status,
+  Impact
+]);
+
+// A card is a collection of elements
+const InsightCard = z.object({
+  id: z.string(),
+  type: z.literal('insightCard'),
+  category: z.enum(['public_info', 'credit_usage', 'electoral_roll']),
+  elements: z.array(CardElement),
+  actions: z.object({
+    onClick: z.optional(z.object({
+      type: z.enum(['drawer', 'modal']),
+      data: z.record(z.unknown())
+    }))
+  })
+});
+
+// The screen schema
+export const SDUISchema = z.object({
   type: z.literal('screen'),
-  title: z.string(),
-  description: z.string(),
-  insights: z.array(z.object({
-    id: z.string(),
-    type: z.literal('insightCard'),
-    category: z.string(),
-    title: z.string(),
-    description: z.string(),
-    impact: z.string()
-  }))
-})
+  elements: z.array(InsightCard)
+});

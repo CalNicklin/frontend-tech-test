@@ -65,4 +65,6 @@ I'm using the Hono router to implement the routes. I'm using the zod-openapi pac
 
 Have got basic tests working for the credit report route, but I now need to implement the actual SDui service and retrunng that schema.
 
+I've decided ti implement the sdui schema as a component level ui. So, the insights cards will be split into, text, header etc.
+
 
