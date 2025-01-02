@@ -58,14 +58,18 @@ export class SDUIService {
           ? 'on_track'
           : 'off_track';
 
-      case 'credit_usage':
+      case 'credit_usage': {
         const hasHighUtilisation = report.accounts
           .filter(acc => acc.accountCategory === 'credit_cards')
           .some(card => {
-            const utilisation = card.overview.balance.amount / card.overview.limit.amount;
-            return utilisation >= 0.5;
+            if ('limit' in card.overview) {
+              const utilisation = card.overview.balance.amount / card.overview.limit.amount;
+              return utilisation >= 0.5;
+            }
+            return false;
           });
         return hasHighUtilisation ? 'off_track' : 'on_track';
+      }
 
       case 'electoral_roll':
         return report.personal.electoralRoll.some(r => r.current)
