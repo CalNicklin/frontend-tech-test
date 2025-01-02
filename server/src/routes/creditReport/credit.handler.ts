@@ -1,14 +1,15 @@
 import { type AppRouteHandler } from "../../types";
 import { dataService } from "../../services/data-service";
+import { sduiService } from "../../services/sdui-service";
 import { type GetRoute } from "./credit.route";
 
 export const get: AppRouteHandler<GetRoute> = (c) => {
   const report = dataService.getCreditReport();
-  if (!report) {
-    return c.json({ message: "No report found" }, 404);
+
+  if (!report || report instanceof Error) {
+    return c.json({ message: 'Report not available' }, 503);
   }
-  if (report instanceof Error) {
-    return c.json({ message: report.message }, 500);
-  }
-  return c.json(report, 200);
+
+  const schema = sduiService.generateSchema(report);
+  return c.json(schema, 200);
 };

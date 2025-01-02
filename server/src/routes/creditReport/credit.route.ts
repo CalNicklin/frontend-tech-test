@@ -4,7 +4,7 @@ import {
 } from "stoker/openapi/schemas";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent } from "stoker/openapi/helpers";
-import { CreditReportSchema } from "@/shared/schemas";
+import { SduiSchema } from "@/shared/schemas";
 
 export type GetRoute = typeof get;
 
@@ -12,7 +12,7 @@ export const get = createRoute({
   method: "get",
   path: "/credit",
   responses: {
-    [HttpStatusCodes.OK]: jsonContent(CreditReportSchema, "Credit Report"),
+    [HttpStatusCodes.OK]: jsonContent(SduiSchema, "Credit Report"),
     [HttpStatusCodes.NOT_FOUND]: jsonContent(
       createMessageObjectSchema("Not Found"),
       "Not Found",
@@ -20,6 +20,10 @@ export const get = createRoute({
     [HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
       createMessageObjectSchema("Internal Server Error"),
       "Internal Server Error",
+    ),
+    [HttpStatusCodes.SERVICE_UNAVAILABLE]: jsonContent(
+      createMessageObjectSchema("Service Unavailable"),
+      "Service Unavailable",
     ),
   },
 });

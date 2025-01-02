@@ -4,4 +4,5 @@ import * as handlers from './credit.handler';
 
 const router = createRouter(true).openapi(routes.get, handlers.get);
 
+// eslint-disable-next-line import/no-default-export -- default export is required for the router
 export default router;

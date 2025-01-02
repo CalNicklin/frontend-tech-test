@@ -152,3 +152,17 @@ export const CreditReportSchema = z.object({
     })
   })
 })
+
+export const SduiSchema = z.object({
+  type: z.literal('screen'),
+  title: z.string(),
+  description: z.string(),
+  insights: z.array(z.object({
+    id: z.string(),
+    type: z.literal('insightCard'),
+    category: z.string(),
+    title: z.string(),
+    description: z.string(),
+    impact: z.string()
+  }))
+})

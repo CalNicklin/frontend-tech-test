@@ -63,6 +63,6 @@ Now working on the Hono app. Leaning on previous work I've done to implement the
 
 I'm using the Hono router to implement the routes. I'm using the zod-openapi package to generate the type safety in route handlers - i'm not actually implementing the OpenAPI spec here (even though its generated), because of timing, but I like the API provided by the package and of course in production I'd be publishing  the OpenAPI spec too.
 
-
+Have got basic tests working for the credit report route, but I now need to implement the actual SDui service and retrunng that schema.
 
 
