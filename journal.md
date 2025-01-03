@@ -73,6 +73,7 @@ I've written my tests for the SDui service business logic, and I've implemented 
 
 Added some nice touches to the server and client script to run the app which uses concurrently to run the server and client in parallel, with nice colors.
 
+Disabled the eslint rule for explicit function return types, because I want TS to infer the return type, mostly.
 
 
 

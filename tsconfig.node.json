@@ -5,6 +5,6 @@
     "outDir": "dist-server",
     "rootDir": ".",
   },
-  "include": ["vitest.setup.ts", "server/**/*.json", "shared/**/*", "vitest.config.ts", "server"],
+  "include": ["vitest.setup.ts", "server/**/*.json", "shared/**/*", "vitest.config.ts", "server", "vite.config.ts"],
   "exclude": ["src/**/*"]
 }
