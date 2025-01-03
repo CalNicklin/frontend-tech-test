@@ -77,5 +77,7 @@ Disabled the eslint rule for explicit function return types, because I want TS t
 
 Noticed in CI that my credit route tests failing - because I had forgot to update my tests now I am returning a SDUI schema, not just the credit report.
 
+Resolved a weird git error where app.tsx / App.tsx filename not recognised.
+
 
 
