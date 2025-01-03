@@ -30,4 +30,4 @@ if (error) {
 
 // Since we exit the process if there's an error,
 // we can safely assert that parsedEnv exists here
-export const env = parsedEnv as Env;
+export const env = parsedEnv;

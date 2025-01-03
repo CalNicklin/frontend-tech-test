@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "composite": true,
+    "types": ["node"],
 
     "paths": {
       "@/*": ["./*"],
