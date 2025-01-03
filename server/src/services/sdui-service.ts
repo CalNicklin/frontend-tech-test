@@ -1,5 +1,9 @@
-import type { CreditReport, SDUISchema } from '@shared/types';
-import { Statuses } from '@shared/schemas';
+import {
+  type CreditReport,
+  type SDUISchema,
+  Statuses,
+  ImpactLevels,
+} from '@shared/types';
 
 /**
  * This service is responsible for generating the SDUI schema.
@@ -15,7 +19,7 @@ export class SDUIService {
       title: 'Public information',
       description:
         'Bankruptcies and individual voluntary arrangements can damage your score',
-      impact: 'high' as const,
+      impact: ImpactLevels.High,
     },
     {
       id: 'credit-utilisation',
@@ -24,7 +28,7 @@ export class SDUIService {
       title: 'Credit utilisation',
       description:
         'Using more than 50% of your available credit can damage your score',
-      impact: 'medium' as const,
+      impact: ImpactLevels.Medium,
     },
     {
       id: 'electoral-roll',
@@ -32,7 +36,7 @@ export class SDUIService {
       category: 'electoral_roll',
       title: 'Electoral roll',
       description: 'Being on the electoral roll can improve your score',
-      impact: 'medium' as const,
+      impact: ImpactLevels.Medium,
     },
   ] as const;
 

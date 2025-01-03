@@ -1,3 +1,4 @@
+/* eslint-disable no-console -- intentionally logging to console */
 import { ZodError } from 'zod';
 import { env } from '@server/env';
 import { CreditReportSchema } from '@shared/schemas';
@@ -10,15 +11,32 @@ import type { CreditReport } from '@shared/types';
  * In reality this would likely be querying a database or some other data store.
  */
 export class DataService {
+  private static instance: DataService | null = null;
   private cache = new Map<string, unknown>();
-  private pollInterval = 30 * 1000; // 30 seconds
+  private pollInterval = 30 * 1000;
   private isPolling = false;
   private error: Error | null = null;
+  private isInitialized = false;
+
+  public static getInstance(): DataService {
+    if (!DataService.instance) {
+      DataService.instance = new DataService();
+    }
+    return DataService.instance;
+  }
 
   async init(): Promise<void> {
     if (this.isPolling) return;
 
-    await this.fetchCreditReport();
+    console.log('Initializing DataService...');
+    try {
+      await this.fetchCreditReport();
+      this.isInitialized = true;
+      console.log('DataService initialized successfully');
+    } catch (error) {
+      console.error('Failed to initialize DataService:', error);
+      throw error;
+    }
 
     this.isPolling = true;
     this.startPolling();
@@ -79,11 +97,20 @@ export class DataService {
   }
 
   public getCreditReport(): CreditReport | Error | undefined {
+    if (!this.isInitialized) {
+      console.warn('DataService not initialized');
+      return new Error('DataService not initialized');
+    }
+
     if (this.error) {
+      console.error('DataService error:', this.error);
       return this.error;
     }
-    return this.cache.get('creditReport') as CreditReport;
+
+    const report = this.cache.get('creditReport') as CreditReport | undefined;
+    if (!report) {
+      console.warn('No credit report in cache');
+    }
+    return report;
   }
 }
-
-export const dataService = new DataService();

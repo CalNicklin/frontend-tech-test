@@ -83,5 +83,11 @@ Setup tailwind and removed default styles.
 
 Now working on the base UI building blocks.
 
-
 Made base text and card components, now pill.
+
+Revising my insight cards component to better work with SDui principles
+
+Added SDui renderer component.
+
+
+

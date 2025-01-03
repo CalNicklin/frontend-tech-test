@@ -1,38 +1,27 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
-import './App.css';
+import { useQuery } from '@tanstack/react-query';
+import { SDUISchema } from '@shared/schemas';
+import { Text } from './components/ui/text';
+import { SDUIRenderer } from './components/renderer';
+import { env } from './env';
 
 export function App() {
-  const [count, setCount] = useState(0);
+  const { data: schema } = useQuery({
+    queryKey: ['sdui'],
+    queryFn: async () => {
+      const response = await fetch(`${env.API_URL}/credit`);
+      const data = (await response.json()) as typeof SDUISchema;
+      return SDUISchema.parse(data);
+    },
+  });
+
+  if (!schema) return null;
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p className="text-XL font-strong">Vite + React</p>
-      <div className="card">
-        <button
-          onClick={() => {
-            setCount((prevCount) => prevCount + 1);
-          }}
-          type="button"
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Text type="h1" colour="brand1-step0" variant="strong">
+        Insights
+      </Text>
+      <SDUIRenderer schema={schema} />
     </>
   );
 }

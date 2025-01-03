@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { ImpactLevels, Statuses } from './types';
 
 export const CreditReportSchema = z.object({
   accounts: z.array(
@@ -159,11 +160,6 @@ const Typography = z.object({
   text: z.string(),
 });
 
-export enum Statuses {
-  OnTrack = 'on_track',
-  OffTrack = 'off_track',
-}
-
 export const Status = z.object({
   type: z.literal('status'),
   value: z.nativeEnum(Statuses),
@@ -171,11 +167,11 @@ export const Status = z.object({
 
 const Impact = z.object({
   type: z.literal('impact'),
-  level: z.enum(['high', 'medium', 'low']),
+  level: z.nativeEnum(ImpactLevels),
 });
 
 // Card elements can be composed in any order
-const CardElement = z.discriminatedUnion('type', [Typography, Status, Impact]);
+export const CardElement = z.discriminatedUnion('type', [Typography, Status, Impact]);
 
 // A card is a collection of elements
 const InsightCard = z.object({

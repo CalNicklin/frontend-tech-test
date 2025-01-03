@@ -5,6 +5,7 @@ import {
   spacing,
   shadows,
   breakpoints,
+  radii,
 } from './src/styles/tokens';
 
 /**
@@ -29,6 +30,9 @@ module.exports = {
     extend: {
       spacing: {
         ...spacing,
+      },
+      borderRadius: {
+        ...radii,
       },
       fontSize: {
         ...fontSizes,

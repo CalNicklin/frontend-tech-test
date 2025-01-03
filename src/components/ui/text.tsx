@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@client/utils';
 
 const variants = {
-  fontFamily: {
+  variant: {
     body: 'font-body',
     strong: 'font-strong',
   },
@@ -57,11 +56,17 @@ export interface TextProps
 const Text = React.forwardRef<
   HTMLParagraphElement | HTMLHeadingElement,
   TextProps
->(({ className, fontFamily, fontSize, colour, type, ...props }, ref) => {
+>(({ className, variant, fontSize, colour, type, ...props }, ref) => {
   const Comp = type ?? 'p';
+
+  // Split into base styles and variant styles
+  const baseStyles = className ?? '';
+  const variantStyles = textVariants({ variant, fontSize, colour });
+
   return (
     <Comp
-      className={cn(textVariants({ fontFamily, fontSize, colour, className }))}
+      // Force the variant styles to come after the base styles
+      className={`${baseStyles} ${variantStyles}`}
       ref={ref}
       {...props}
     />

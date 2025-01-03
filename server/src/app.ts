@@ -2,41 +2,50 @@
 import { serve } from '@hono/node-server';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
+import { cors } from 'hono/cors';
 import { DataService } from './services/data-service';
 import { createApp } from './lib/create-app';
 import creditReportRouter from './routes/creditReport/credit.index';
 
-const dataService = new DataService();
 const port = process.env.PORT ?? 3000;
 
-// Initialize polling when server starts
-dataService.init().catch((error: unknown) => {
-  console.error(error);
-});
+async function startServer() {
+  try {
+    console.log('Starting server initialization...');
 
-export const app = createApp();
+    const dataService = DataService.getInstance();
+    await dataService.init();
 
-app.use('*', logger());
-app.use('*', prettyJSON());
+    const app = createApp();
 
-const routes = [creditReportRouter];
+    app.use('*', logger());
+    app.use('*', prettyJSON());
+    app.use(
+      '*',
+      cors({
+        origin: 'http://localhost:5173',
+        credentials: true,
+      }),
+    );
 
-routes.forEach((route) => {
-  app.route('/', route);
-});
+    const routes = [creditReportRouter];
+    routes.forEach((route) => {
+      app.route('/', route);
+    });
 
-app.get('/hello', (c) => {
-  return c.json({
-    message: 'Hello World!',
-  });
-});
+    serve(
+      {
+        fetch: app.fetch,
+        port: Number(port),
+      },
+      () => {
+        console.log(`🚀 Server is running on port:${String(port)}`);
+      },
+    );
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
 
-serve(
-  {
-    fetch: app.fetch,
-    port: Number(port),
-  },
-  () => {
-    console.log(`🚀 Server is running on port:${String(port)}`);
-  },
-);
+void startServer();
