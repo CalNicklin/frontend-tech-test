@@ -1,6 +1,5 @@
-import { type z } from 'zod';
-import { type Status } from '@/shared/schemas';
 import type { CreditReport, SDUISchema } from '@shared/types';
+import { type Status } from '../types';
 
 export class SDUIService {
   // Represents a CMS-defined content structure, I assume this is how Clearscore defines content ordering etc
@@ -52,7 +51,7 @@ export class SDUIService {
     };
   }
 
-  private determineStatus(category: string, report: CreditReport): z.infer<typeof Status>['value'] {
+  private determineStatus(category: string, report: CreditReport): Status {
     switch (category) {
       case 'public_info':
         return report.personal.publicInfo.courtAndInsolvencies.length === 0
