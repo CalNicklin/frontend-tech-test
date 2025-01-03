@@ -72,7 +72,8 @@ The application uses typed environment variables. Required variables:
 - `NODE_ENV` - Environment mode (development/production)
 - `PORT` - Server port number
 - `LOG_LEVEL` - Server logging level
-- `EXTERNAL_API_URL` - External API endpoint
+- `CREDIT_REPORT_API_URL` - Credit report API endpoint
+- `INSIGHT_API_URL` - Insights API endpoint
 - `API_URL` - Local API endpoint
 
 Environment variables are validated at runtime using Zod. The application will exit if required variables are missing or invalid.
