@@ -1,17 +1,5 @@
 /* eslint-disable no-console -- we want to log errors to the console at this stage, pre client build */
-import path from 'node:path';
-import { config } from 'dotenv';
-import { expand } from 'dotenv-expand';
 import { z } from 'zod';
-
-expand(
-  config({
-    path: path.resolve(
-      process.cwd(),
-      process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
-    ),
-  }),
-);
 
 const EnvSchema = z.object({
   NODE_ENV: z.string().default('development'),
@@ -20,14 +8,15 @@ const EnvSchema = z.object({
 
 export type Env = z.infer<typeof EnvSchema>;
 
-const { data: parsedEnv, error } = EnvSchema.safeParse(process.env);
+const { data: parsedEnv, error } = EnvSchema.safeParse({
+  NODE_ENV: import.meta.env.MODE,
+  API_URL: import.meta.env.VITE_API_URL as string,
+});
 
 if (error) {
   console.error('❌ Invalid env:');
   console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
-  process.exit(1);
+  throw error;
 }
 
-// Since we exit the process if there's an error,
-// we can safely assert that parsedEnv exists here
 export const env = parsedEnv;

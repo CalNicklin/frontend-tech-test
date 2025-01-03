@@ -6,17 +6,14 @@ import { DataService } from './data-service';
 import mockReport from './mocks/credit-response.json';
 import { APIError } from './error';
 
-beforeEach(() => {
-  vi.clearAllMocks();
-});
-
 describe('DataService', () => {
   let dataService: DataService;
   const originalFetch = global.fetch;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    dataService = new DataService();
+    DataService.resetInstance();
+    dataService = DataService.getInstance();
     global.fetch = vi.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true,
@@ -28,6 +25,7 @@ describe('DataService', () => {
 
   afterAll(() => {
     global.fetch = originalFetch;
+    DataService.resetInstance();
   });
 
   it('should fetch data every 30 seconds', async () => {
@@ -48,16 +46,24 @@ describe('DataService', () => {
 
   it('should cache data and return cached data if available', async () => {
     await dataService.init();
-
     expect(global.fetch).toHaveBeenCalledTimes(1);
 
+    const report = dataService.getCreditReport();
+    expect(report).toEqual(mockReport);
+
+    // Multiple calls should use cached data
+    expect(dataService.getCreditReport()).toEqual(mockReport);
     expect(dataService.getCreditReport()).toEqual(mockReport);
 
-    expect(dataService.getCreditReport()).toEqual(mockReport);
-    expect(dataService.getCreditReport()).toEqual(mockReport);
-
-    // Verify fetch wasn't called again (still just once from init)
+    // Verify fetch wasn't called again
     expect(global.fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('should return an undefined value if the cache is empty', () => {
+    // Service isn't initialized, should return error
+    const result = dataService.getCreditReport();
+    expect(result).toBeInstanceOf(Error);
+    expect((result as Error).message).toBe('DataService not initialized');
   });
 
   it('should fetch valid credit score data', async () => {
@@ -107,9 +113,5 @@ describe('DataService', () => {
     } catch (error) {
       expect(error).toBeInstanceOf(ZodError);
     }
-  });
-
-  it('should return an undefined value if the cache is empty', () => {
-    expect(dataService.getCreditReport()).toBeUndefined();
   });
 });

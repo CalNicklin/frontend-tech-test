@@ -1,15 +1,17 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { testClient } from 'hono/testing';
 import mockReport from '@server/src/services/mocks/credit-response.json';
-import { dataService } from '@server/src/services/data-service';
+import { DataService } from '@server/src/services/data-service';
 import { sduiService } from '@server/src/services/sdui-service';
 import { createApp } from '../../lib/create-app';
 import router from './credit.index';
 
 vi.mock('@server/src/services/data-service', () => ({
-  dataService: {
-    getCreditReport: vi.fn(),
-    init: () => Promise.resolve(),
+  DataService: {
+    getInstance: vi.fn().mockReturnValue({
+      getCreditReport: vi.fn(),
+      init: () => Promise.resolve(),
+    }),
   },
 }));
 
@@ -22,8 +24,11 @@ vi.mock('@server/src/services/sdui-service', () => ({
 const client = testClient(createApp().route('/', router));
 
 describe('Credit Report Router', () => {
+  let dataService: ReturnType<typeof DataService.getInstance>;
+
   beforeEach(() => {
     vi.clearAllMocks();
+    dataService = DataService.getInstance();
   });
 
   it('should return a 200 status code and a SDUI schema when report is available', async () => {

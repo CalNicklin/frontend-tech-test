@@ -113,4 +113,9 @@ export class DataService {
     }
     return report;
   }
+
+  // Protected method for testing purposes
+  public static resetInstance(): void {
+    DataService.instance = null;
+  }
 }
