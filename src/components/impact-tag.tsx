@@ -4,15 +4,17 @@ import { Text } from './ui/text';
 
 interface ImpactTagProps {
   impact: ImpactLevels;
+  className?: string;
 }
 
-export function ImpactTag({ impact }: ImpactTagProps) {
+export function ImpactTag({ impact, className }: ImpactTagProps) {
   return (
-    <Pill colour="neutral-step-1">
+    <Pill colour="neutral-step-1" className={className}>
       <Text
         type="p"
         variant="body"
-        colour="neutral-step-0"
+        fontSize="XS"
+        colour="brand1-step0"
         className="uppercase"
       >
         {`${impact} impact`}

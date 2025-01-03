@@ -1,45 +1,47 @@
-import { type CardElement } from '@shared/types';
+import { type ImpactLevels, type Statuses } from '@shared/types';
 import { Card } from './ui/card';
 import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';
 import { ImpactTag } from './impact-tag';
 
 interface InsightCardProps {
-  elements: CardElement[];
-  actions?: {
-    onClick?: {
-      type: 'drawer' | 'modal';
-      data: Record<string, unknown>;
-    };
-  };
+  heading: string;
+  body: string;
+  impact: ImpactLevels;
+  status: Statuses;
 }
 
-export function InsightCard({ elements, actions }: InsightCardProps) {
-  const status = elements.find((e) => e.type === 'status');
-  const heading = elements.find((e) => e.type === 'heading');
-  const body = elements.find((e) => e.type === 'body');
-  const impact = elements.find((e) => e.type === 'impact');
-
-  const handleClick = () => {
-    if (actions?.onClick?.type === 'drawer') {
-      // Handle drawer opening
-    }
-  };
-
+export function InsightCard({
+  heading,
+  body,
+  impact,
+  status,
+}: InsightCardProps) {
   return (
-    <Card
-      variant="insight"
-      className="items-start"
-      onClick={actions?.onClick ? handleClick : undefined}
-    >
-      <OnTrackTag status={status?.value} />
-      <Text type="p" variant="strong" colour="brand1-step0">
-        {heading?.text}
-      </Text>
-      <Text type="p" variant="body" colour="neutral-step-0">
-        {body?.text}
-      </Text>
-      <ImpactTag impact={impact?.level} />
+    <Card variant="insight" data-testid="insight-card">
+      <div className="flex flex-col h-full gap-y-M">
+        <div className="L:flex L:flex-row L:gap-M L:items-center">
+          <OnTrackTag status={status} data-testid="status" />
+          <ImpactTag
+            impact={impact}
+            data-testid="impact"
+            className="hidden L:block"
+          />
+        </div>
+
+        <div className="flex-grow">
+          <Text type="p" variant="strong" colour="brand1-step0">
+            {heading}
+          </Text>
+          <Text type="p" variant="body" colour="brand1-step0">
+            {body}
+          </Text>
+        </div>
+
+        <div className="L:hidden">
+          <ImpactTag impact={impact} data-testid="impact" />
+        </div>
+      </div>
     </Card>
   );
 }

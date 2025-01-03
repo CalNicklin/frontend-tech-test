@@ -1,27 +1,31 @@
 import { useQuery } from '@tanstack/react-query';
-import { SDUISchema } from '@shared/schemas';
+import { type CreditReport } from '@shared/types';
+import { CreditReportSchema } from '@/shared/schemas';
 import { Text } from './components/ui/text';
-import { SDUIRenderer } from './components/renderer';
+import { InsightsContainer } from './components/insight-container';
 import { env } from './env';
 
+const fetchCreditReport = async () => {
+  const response = await fetch(`${env.API_URL}/credit`);
+  const json = (await response.json()) as CreditReport;
+  const parsed = CreditReportSchema.parse(json);
+  return parsed.record;
+};
+
 export function App() {
-  const { data: schema } = useQuery({
-    queryKey: ['sdui'],
-    queryFn: async () => {
-      const response = await fetch(`${env.API_URL}/credit`);
-      const data = (await response.json()) as typeof SDUISchema;
-      return SDUISchema.parse(data);
-    },
+  const { data, isLoading, error, isError } = useQuery({
+    queryKey: ['credit'],
+    queryFn: fetchCreditReport,
   });
 
-  if (!schema) return null;
+  if (!data) return null;
 
   return (
     <>
-      <Text type="h1" colour="brand1-step0" variant="strong">
+      <Text type="h1" colour="brand1-step0" variant="strong" fontSize="L">
         Insights
       </Text>
-      <SDUIRenderer schema={schema} />
+      <InsightsContainer data={data} />
     </>
   );
 }

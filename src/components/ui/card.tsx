@@ -8,7 +8,7 @@ const baseClasses = cn(
 
 const variants = {
   variant: {
-    insight: 'flex-col p-S justify-center gap-M shadow-default',
+    insight: 'flex-col p-L justify-center gap-M shadow-default w-full h-full',
   },
 };
 

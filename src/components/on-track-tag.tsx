@@ -7,18 +7,17 @@ interface OnTrackTagProps {
 }
 
 export function OnTrackTag({ status }: OnTrackTagProps) {
-  if (!status) return null;
-
   return (
     <Pill
-      colour={status === Statuses.OnTrack ? 'brand2-step1' : 'brand3-step0'}
-      className="min-h-M rounded-S"
+      colour={status === Statuses.OnTrack ? 'brand2-step1' : 'brand3-step1'}
+      padding="XS"
+      className="rounded-S w-fit py-1"
     >
       <Text
         type="p"
         variant="body"
         fontSize="XS"
-        colour={status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step1'}
+        colour={status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step0'}
         className="uppercase tracking-wide"
       >
         {status === Statuses.OnTrack ? 'On Track' : 'Off Track'}
