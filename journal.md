@@ -79,5 +79,9 @@ Noticed in CI that my credit route tests failing - because I had forgot to updat
 
 Resolved a weird git error where app.tsx / App.tsx filename not recognised.
 
+Setup tailwind and removed default styles.
+
+Now working on the base UI building blocks.
 
 
+Made base text and card components, now pill.

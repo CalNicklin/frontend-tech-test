@@ -1,5 +1,5 @@
 import type { CreditReport, SDUISchema } from '@shared/types';
-import { type Status } from '../types';
+import { Statuses } from '@shared/schemas';
 
 /**
  * This service is responsible for generating the SDUI schema.
@@ -59,12 +59,12 @@ export class SDUIService {
     };
   }
 
-  private determineStatus(category: string, report: CreditReport): Status {
+  private determineStatus(category: string, report: CreditReport): Statuses {
     switch (category) {
       case 'public_info':
         return report.personal.publicInfo.courtAndInsolvencies.length === 0
-          ? 'on_track'
-          : 'off_track';
+          ? Statuses.OnTrack
+          : Statuses.OffTrack;
 
       case 'credit_usage': {
         const hasHighUtilisation = report.accounts
@@ -77,16 +77,16 @@ export class SDUIService {
             }
             return false;
           });
-        return hasHighUtilisation ? 'off_track' : 'on_track';
+        return hasHighUtilisation ? Statuses.OffTrack : Statuses.OnTrack;
       }
 
       case 'electoral_roll':
         return report.personal.electoralRoll.some((r) => r.current)
-          ? 'on_track'
-          : 'off_track';
+          ? Statuses.OnTrack
+          : Statuses.OffTrack;
 
       default:
-        return 'off_track';
+        return Statuses.OffTrack;
     }
   }
 }

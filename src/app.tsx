@@ -16,7 +16,7 @@ export function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <p className="text-XL font-default">Vite + React</p>
+      <p className="text-XL font-strong">Vite + React</p>
       <div className="card">
         <button
           onClick={() => {

@@ -159,9 +159,14 @@ const Typography = z.object({
   text: z.string(),
 });
 
+export enum Statuses {
+  OnTrack = 'on_track',
+  OffTrack = 'off_track',
+}
+
 export const Status = z.object({
   type: z.literal('status'),
-  value: z.enum(['on_track', 'off_track']),
+  value: z.nativeEnum(Statuses),
 });
 
 const Impact = z.object({

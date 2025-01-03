@@ -14,15 +14,16 @@ export const colors = {
     step1: '#FDEFE2',
   },
   neutral: {
-    'step-0': '#EEEFF1',
+    step0: '#747F8A',
+    step1: '#EEEFF1',
   },
 } as const;
 
 export const fontSizes = {
-  XL: '1.25rem',
-  L: '1rem',
-  M: '0.875rem',
-  S: '0.75rem',
+  L: '1.25rem',
+  M: '1rem',
+  S: '0.875rem',
+  XS: '0.75rem',
 } as const;
 
 export const fontWeights = {
@@ -31,11 +32,16 @@ export const fontWeights = {
 } as const;
 
 export const spacing = {
-  XL: '1.5rem',
-  L: '1rem',
-  M: '0.625rem',
-  S: '0.5rem',
-  XS: '0.25rem',
+  L: '1.5rem',
+  M: '1rem',
+  S: '0.625rem',
+  XS: '0.5rem',
+  XXS: '0.25rem',
+} as const;
+
+export const radii = {
+  M: '0.5rem',
+  S: '0.25rem',
 } as const;
 
 export const shadows = {

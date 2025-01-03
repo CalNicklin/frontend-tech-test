@@ -14,10 +14,7 @@ import {
  */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
       ...breakpoints,
@@ -26,7 +23,7 @@ module.exports = {
       ...colors,
     },
     fontFamily: {
-      default: ['CSClarity', 'system-ui', 'sans-serif'],
+      body: ['CSClarity', 'system-ui', 'sans-serif'],
       strong: ['CSClarity-bold', 'system-ui', 'sans-serif'],
     },
     extend: {
@@ -39,8 +36,8 @@ module.exports = {
       fontWeight: {
         ...fontWeights,
       },
-      shadows: {
-        ...shadows,
+      boxShadow: {
+        default: shadows.default,
       },
     },
   },
