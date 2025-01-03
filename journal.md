@@ -75,7 +75,7 @@ Added some nice touches to the server and client script to run the app which use
 
 Disabled the eslint rule for explicit function return types, because I want TS to infer the return type, mostly.
 
-
+Noticed in CI that my credit route tests failing - because I had forgot to update my tests now I am returning a SDUI schema, not just the credit report.
 
 
 

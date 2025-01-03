@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "prettify": "prettier --write \"src/**/*.{ts,tsx,json}\" \"server/src/**/*.{ts,tsx,json}\" \"shared/**/*.{ts,tsx,json}\"",
     "preview": "vite preview",
+    "check": "pnpm run lint && pnpm run typecheck",
     "typecheck": "tsc -b",
     "test": "vitest"
   },

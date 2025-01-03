@@ -6,7 +6,6 @@ import { type Status } from '../types';
  * It receives a credit report from the DataService, combines it with mocked CMS shape and returns a complete SDUI schema.
  */
 export class SDUIService {
-  
   // Represents a CMS-defined content structure, I assume this is how Clearscore defines content ordering etc
   private readonly insightStructure = [
     {
