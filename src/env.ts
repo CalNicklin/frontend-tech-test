@@ -1,3 +1,4 @@
+/* eslint-disable no-console -- we want to log errors to the console at this stage, pre client build */
 import path from 'node:path';
 import { config } from 'dotenv';
 import { expand } from 'dotenv-expand';
@@ -29,4 +30,4 @@ if (error) {
 
 // Since we exit the process if there's an error,
 // we can safely assert that parsedEnv exists here
-export const env = parsedEnv as Env;
+export const env = parsedEnv;
