@@ -3,7 +3,8 @@ import { type Status } from '@/shared/schemas';
 import type { CreditReport, SDUISchema } from '@shared/types';
 
 export class SDUIService {
-  // Simulating CMS-defined content structure
+  // Represents a CMS-defined content structure, I assume this is how Clearscore defines content ordering etc
+
   private readonly insightStructure = [
     {
       id: 'public-information',
