@@ -89,5 +89,6 @@ Revising my insight cards component to better work with SDui principles
 
 Added SDui renderer component.
 
+Just spent a while fixing the api communication. Data servuice wasnt fully initialised in the server, so data was undefined AND my typed env wasnt working on the client due to node:path. Fixed tests.
 
-
+Going to park the SDui approach. I'm concerned about time and scope. I'm going to implement something solid, prod ready, and then I can come back to SDui.

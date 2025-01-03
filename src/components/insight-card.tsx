@@ -39,7 +39,7 @@ export function InsightCard({ elements, actions }: InsightCardProps) {
       <Text type="p" variant="body" colour="neutral-step-0">
         {body?.text}
       </Text>
-      <ImpactTag level={impact?.level} />
+      <ImpactTag impact={impact?.level} />
     </Card>
   );
 }
