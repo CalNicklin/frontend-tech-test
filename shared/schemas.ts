@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from 'zod';
 
 export const CreditReportSchema = z.object({
   accounts: z.array(
@@ -11,7 +11,7 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string()
+          town: z.string(),
         }),
         contentKey: z.string(),
         displayName: z.string(),
@@ -23,17 +23,17 @@ export const CreditReportSchema = z.object({
           balance: z.object({ amount: z.number(), currency: z.string() }),
           frequency: z.string(),
           limit: z.object({ amount: z.number(), currency: z.string() }),
-          accountOpened: z.string()
+          accountOpened: z.string(),
         }),
         paymentHistory: z.array(
           z.object({
             month: z.number(),
             paymentStatus: z.string(),
-            year: z.number()
-          })
+            year: z.number(),
+          }),
         ),
         status: z.string(),
-        supplierName: z.string()
+        supplierName: z.string(),
       }),
       z.object({
         accountCategory: z.string(),
@@ -43,7 +43,7 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string()
+          town: z.string(),
         }),
         contentKey: z.string(),
         displayName: z.string(),
@@ -53,19 +53,19 @@ export const CreditReportSchema = z.object({
           lastUpdated: z.string(),
           balance: z.object({ amount: z.number(), currency: z.string() }),
           frequency: z.string(),
-          accountOpened: z.string()
+          accountOpened: z.string(),
         }),
         paymentHistory: z.array(
           z.object({
             month: z.number(),
             paymentStatus: z.string(),
-            year: z.number()
-          })
+            year: z.number(),
+          }),
         ),
         status: z.string(),
-        supplierName: z.string()
-      })
-    ])
+        supplierName: z.string(),
+      }),
+    ]),
   ),
   personal: z.object({
     electoralRoll: z.array(
@@ -75,15 +75,15 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string()
+          town: z.string(),
         }),
         contextKey: z.string(),
         current: z.boolean(),
         endDateString: z.string(),
         name: z.string(),
         startDateString: z.string(),
-        supplied: z.string()
-      })
+        supplied: z.string(),
+      }),
     ),
     publicInfo: z.object({
       courtAndInsolvencies: z.array(
@@ -101,13 +101,13 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string()
+              town: z.string(),
             }),
             type: z.object({
               code: z.string(),
-              details: z.object({ catDesc: z.string() })
+              details: z.object({ catDesc: z.string() }),
             }),
-            startDate: z.string()
+            startDate: z.string(),
           }),
           z.object({
             name: z.string(),
@@ -121,13 +121,13 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string()
+              town: z.string(),
             }),
             type: z.object({
               code: z.string(),
-              details: z.object({ catDesc: z.string() })
+              details: z.object({ catDesc: z.string() }),
             }),
-            startDate: z.string()
+            startDate: z.string(),
           }),
           z.object({
             name: z.string(),
@@ -142,21 +142,21 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string()
+              town: z.string(),
             }),
             type: z.object({ code: z.string() }),
-            startDate: z.string()
-          })
-        ])
-      )
-    })
-  })
-})
+            startDate: z.string(),
+          }),
+        ]),
+      ),
+    }),
+  }),
+});
 
 // Atomic elements
 const Typography = z.object({
   type: z.enum(['heading', 'body']),
-  text: z.string()
+  text: z.string(),
 });
 
 export const Status = z.object({
@@ -166,15 +166,11 @@ export const Status = z.object({
 
 const Impact = z.object({
   type: z.literal('impact'),
-  level: z.enum(['high', 'medium', 'low'])
+  level: z.enum(['high', 'medium', 'low']),
 });
 
 // Card elements can be composed in any order
-const CardElement = z.discriminatedUnion('type', [
-  Typography,
-  Status,
-  Impact
-]);
+const CardElement = z.discriminatedUnion('type', [Typography, Status, Impact]);
 
 // A card is a collection of elements
 const InsightCard = z.object({
@@ -183,15 +179,17 @@ const InsightCard = z.object({
   category: z.enum(['public_info', 'credit_usage', 'electoral_roll']),
   elements: z.array(CardElement),
   actions: z.object({
-    onClick: z.optional(z.object({
-      type: z.enum(['drawer', 'modal']),
-      data: z.record(z.unknown())
-    }))
-  })
+    onClick: z.optional(
+      z.object({
+        type: z.enum(['drawer', 'modal']),
+        data: z.record(z.unknown()),
+      }),
+    ),
+  }),
 });
 
 // The screen schema
 export const SDUISchema = z.object({
   type: z.literal('screen'),
-  elements: z.array(InsightCard)
+  elements: z.array(InsightCard),
 });

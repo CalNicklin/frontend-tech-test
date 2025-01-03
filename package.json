@@ -10,6 +10,7 @@
     "build": "tsc -b && vite build",
     "build:server": "tsc -p tsconfig.node.json",
     "lint": "eslint .",
+    "prettify": "prettier --write \"src/**/*.{ts,tsx,json}\" \"server/src/**/*.{ts,tsx,json}\" \"shared/**/*.{ts,tsx,json}\"",
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "test": "vitest"

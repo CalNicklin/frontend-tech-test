@@ -1,8 +1,8 @@
-import { ZodError } from "zod";
-import { env } from "@server/env";
-import { CreditReportSchema } from "@shared/schemas";
-import { APIError } from "@server/src/services/error";
-import type { CreditReport } from "@shared/types";
+import { ZodError } from 'zod';
+import { env } from '@server/env';
+import { CreditReportSchema } from '@shared/schemas';
+import { APIError } from '@server/src/services/error';
+import type { CreditReport } from '@shared/types';
 
 /**
  * DataService is a singleton class that fetches and caches credit report data and insights.
@@ -43,7 +43,10 @@ export class DataService {
         if (response.ok) return response;
 
         if (i === retries - 1) {
-          this.error = new APIError(`Failed to fetch credit report: ${response.statusText}`, response.status);
+          this.error = new APIError(
+            `Failed to fetch credit report: ${response.statusText}`,
+            response.status,
+          );
           throw this.error;
         }
       } catch (error) {
@@ -51,7 +54,7 @@ export class DataService {
       }
 
       // Wait before retrying with exponential backoff
-      await new Promise<void>(resolve => {
+      await new Promise<void>((resolve) => {
         setTimeout(resolve, this.getBackoffDelay(i));
       });
     }
@@ -62,7 +65,7 @@ export class DataService {
   private async fetchCreditReport(): Promise<void> {
     try {
       const response = await this.fetchWithRetry(env.CREDIT_REPORT_API_URL);
-      const data = await response.json() as unknown;
+      const data = (await response.json()) as unknown;
       const parsedData = CreditReportSchema.parse(data);
       this.cache.set('creditReport', parsedData);
     } catch (error) {
@@ -79,7 +82,7 @@ export class DataService {
     if (this.error) {
       return this.error;
     }
-    return this.cache.get('creditReport') as CreditReport
+    return this.cache.get('creditReport') as CreditReport;
   }
 }
 

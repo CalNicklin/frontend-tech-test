@@ -67,6 +67,8 @@ Have got basic tests working for the credit report route, but I now need to impl
 
 I've decided ti implement the sdui schema as a component level ui. So, the insights cards will be split into, text, header etc.
 
+3rd Jan:
+
 I've written my tests for the SDui service business logic, and I've implemented the service.
 
 Added some nice touches to the server and client script to run the app which uses concurrently to run the server and client in parallel, with nice colors.

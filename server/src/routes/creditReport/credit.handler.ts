@@ -1,7 +1,7 @@
-import { type AppRouteHandler } from "../../types";
-import { dataService } from "../../services/data-service";
-import { sduiService } from "../../services/sdui-service";
-import { type GetRoute } from "./credit.route";
+import { type AppRouteHandler } from '../../types';
+import { dataService } from '../../services/data-service';
+import { sduiService } from '../../services/sdui-service';
+import { type GetRoute } from './credit.route';
 
 export const get: AppRouteHandler<GetRoute> = (c) => {
   const report = dataService.getCreditReport();

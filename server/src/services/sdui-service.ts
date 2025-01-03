@@ -10,16 +10,18 @@ export class SDUIService {
       type: 'insightCard',
       category: 'public_info',
       title: 'Public information',
-      description: 'Bankruptcies and individual voluntary arrangements can damage your score',
-      impact: 'high' as const
+      description:
+        'Bankruptcies and individual voluntary arrangements can damage your score',
+      impact: 'high' as const,
     },
     {
       id: 'credit-utilisation',
       type: 'insightCard',
       category: 'credit_usage',
       title: 'Credit utilisation',
-      description: 'Using more than 50% of your available credit can damage your score',
-      impact: 'medium' as const
+      description:
+        'Using more than 50% of your available credit can damage your score',
+      impact: 'medium' as const,
     },
     {
       id: 'electoral-roll',
@@ -27,27 +29,30 @@ export class SDUIService {
       category: 'electoral_roll',
       title: 'Electoral roll',
       description: 'Being on the electoral roll can improve your score',
-      impact: 'medium' as const
-    }
+      impact: 'medium' as const,
+    },
   ] as const;
 
   public generateSchema(report: CreditReport): SDUISchema {
     return {
       type: 'screen',
-      elements: this.insightStructure.map(insight => ({
+      elements: this.insightStructure.map((insight) => ({
         id: insight.id,
         type: 'insightCard',
         category: insight.category,
         elements: [
-          { type: 'status', value: this.determineStatus(insight.category, report) },
+          {
+            type: 'status',
+            value: this.determineStatus(insight.category, report),
+          },
           { type: 'heading', text: insight.title },
           { type: 'body', text: insight.description },
           { type: 'impact', level: insight.impact },
         ],
         actions: {
-          onClick: { type: 'drawer', data: { report } }
-        }
-      }))
+          onClick: { type: 'drawer', data: { report } },
+        },
+      })),
     };
   }
 
@@ -60,10 +65,11 @@ export class SDUIService {
 
       case 'credit_usage': {
         const hasHighUtilisation = report.accounts
-          .filter(acc => acc.accountCategory === 'credit_cards')
-          .some(card => {
+          .filter((acc) => acc.accountCategory === 'credit_cards')
+          .some((card) => {
             if ('limit' in card.overview) {
-              const utilisation = card.overview.balance.amount / card.overview.limit.amount;
+              const utilisation =
+                card.overview.balance.amount / card.overview.limit.amount;
               return utilisation >= 0.5;
             }
             return false;
@@ -72,7 +78,7 @@ export class SDUIService {
       }
 
       case 'electoral_roll':
-        return report.personal.electoralRoll.some(r => r.current)
+        return report.personal.electoralRoll.some((r) => r.current)
           ? 'on_track'
           : 'off_track';
 

@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { onError, notFound} from 'stoker/middlewares';
+import { onError, notFound } from 'stoker/middlewares';
 import { defaultHook } from 'stoker/openapi';
 import { pinoLogger } from '../middlewares/pino-logger';
 import { type AppBindings } from '../types';

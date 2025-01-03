@@ -22,7 +22,7 @@ describe('DataService', () => {
         ok: true,
         status: 200,
         json: () => Promise.resolve(mockReport),
-      } as Response)
+      } as Response),
     );
   });
 
@@ -74,7 +74,7 @@ describe('DataService', () => {
         ok: false,
         status: 404,
         statusText: 'Not Found',
-      } as Response)
+      } as Response),
     );
 
     try {
@@ -82,7 +82,9 @@ describe('DataService', () => {
     } catch (error) {
       expect(error).toBeInstanceOf(APIError);
       expect((error as APIError).status).toBe(404);
-      expect((error as APIError).message).toBe('Failed to fetch credit report: Not Found');
+      expect((error as APIError).message).toBe(
+        'Failed to fetch credit report: Not Found',
+      );
     }
   });
 
@@ -97,7 +99,7 @@ describe('DataService', () => {
         ok: true,
         status: 200,
         json: () => Promise.resolve(mockResponse),
-      } as Response)
+      } as Response),
     );
 
     try {
