@@ -1,9 +1,13 @@
 import type { CreditReport, SDUISchema } from '@shared/types';
 import { type Status } from '../types';
 
+/**
+ * This service is responsible for generating the SDUI schema.
+ * It receives a credit report from the DataService, combines it with mocked CMS shape and returns a complete SDUI schema.
+ */
 export class SDUIService {
+  
   // Represents a CMS-defined content structure, I assume this is how Clearscore defines content ordering etc
-
   private readonly insightStructure = [
     {
       id: 'public-information',

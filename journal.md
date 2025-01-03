@@ -61,7 +61,7 @@ Completed implementing the data service tests. Admit that it's very basic in it'
 
 Now working on the Hono app. Leaning on previous work I've done to implement the basic structure of this.
 
-I'm using the Hono router to implement the routes. I'm using the zod-openapi package to generate the type safety in route handlers - i'm not actually implementing the OpenAPI spec here (even though its generated), because of timing, but I like the API provided by the package and of course in production I'd be publishing  the OpenAPI spec too.
+I'm using the Hono router to implement the routes. I'm using the zod-openapi package to generate the type safety in route handlers - i'm not actually implementing the OpenAPI spec here (even though its generated), because of timing, but I like the API provided by the package and of course in production I'd be publishing the OpenAPI spec too. I'm using a nice lib called Stoker which provides Hono helper methods. 
 
 Have got basic tests working for the credit report route, but I now need to implement the actual SDui service and retrunng that schema.
 
