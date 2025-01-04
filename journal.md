@@ -92,3 +92,17 @@ Added SDui renderer component.
 Just spent a while fixing the api communication. Data servuice wasnt fully initialised in the server, so data was undefined AND my typed env wasnt working on the client due to node:path. Fixed tests.
 
 Going to park the SDui approach. I'm concerned about time and scope. I'm going to implement something solid, prod ready, and then I can come back to SDui.
+
+Have implemented insight cards and their building blocks.
+
+ALso made a basic react query client.
+
+Now want to implement the insight details drawer.
+
+THen need to handle loading states and errors.
+
+Then will go back over and implement all tests.
+
+Then annotate and document the code, update readme.
+
+Then strip out all the unused code and make sure everything is as clean as possible.

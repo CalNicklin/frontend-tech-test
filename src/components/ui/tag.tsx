@@ -14,7 +14,7 @@ export function Tag({ pillColor, textColor, text, className }: TagProps) {
     <Pill
       colour={pillColor}
       className={cn(
-        'rounded-S w-fit py-[calc(theme(spacing.XXS)/2)] px-XS',
+        'rounded-S w-fit py-[calc(theme(spacing.XS)/2)] px-XS',
         className,
       )}
     >

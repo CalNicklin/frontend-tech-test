@@ -11,8 +11,10 @@ export function App() {
 
   if (!data) return null;
 
+  // TODO: handle loading and error states
+
   return (
-    <div className="flex flex-col p-L gap-y-M">
+    <div className="flex flex-col p-L gap-y-M max-w-screen-XL mx-auto">
       <Text type="h1" colour="brand1-step0" variant="strong" fontSize="L">
         Insights
       </Text>
