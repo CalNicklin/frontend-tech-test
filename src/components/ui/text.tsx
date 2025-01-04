@@ -16,9 +16,13 @@ const variants = {
     h6: 'h6',
   },
   fontSize: {
+    /** 20px */
     L: 'text-L',
+    /** 16px */
     M: 'text-M',
+    /** 14px */
     S: 'text-S',
+    /** 12px */
     XS: 'text-XS',
   },
   colour: {

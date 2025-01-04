@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import mockReport from '@server/src/services/mocks/credit-response.json';
 import { InsightsContainer } from '@client/components/insight-container';
+import mockReport from './mocks/credit-response.json';
 
 describe('InsightsContainer', () => {
   describe('Status determination', () => {
     describe('Public info', () => {
       describe('If there is any information within the personal.publicInfo.courtAndInsolvencies[] array, they have CCJ or insolvency.', () => {
+        it.todo('Header is Public information');
+        it.todo('Impact is High');
+        it.todo(
+          'Body is Bankruptcies and individual voluntary arrangements can damage your score',
+        );
+
         it('If the user has any CCJ or insolvencies, then they are considered to be off track.', () => {
           render(<InsightsContainer data={mockReport} />);
 
@@ -48,6 +54,12 @@ describe('InsightsContainer', () => {
 
     describe('Credit utilisation', () => {
       describe('An account it considered to be a credit card when accounts[].accountCategory is credit_cards', () => {
+        it.todo('Header is Credit utilisation');
+        it.todo('Impact is Medium');
+        it.todo(
+          'Body is Using more than 50% of your available credit can damage your score',
+        );
+
         it('If the user has any credit card balance 50% or more of their limit, they are considered off track', () => {
           const report = {
             ...mockReport,
@@ -99,6 +111,10 @@ describe('InsightsContainer', () => {
     });
 
     describe('Electoral roll', () => {
+      it.todo('Header is Electoral roll');
+      it.todo('Impact is Medium');
+      it.todo('Body is Being on the electoral roll can improve your score');
+
       it('If the user is not on an electoral roll, they are considered to be off track', () => {
         const report = {
           ...mockReport,

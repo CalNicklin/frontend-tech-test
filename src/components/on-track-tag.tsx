@@ -1,27 +1,20 @@
-import { Statuses } from '@/shared/types';
-import { Pill } from './ui/pill';
-import { Text } from './ui/text';
+import { Statuses } from '@shared/types';
+import { Tag } from './ui/tag';
 
 interface OnTrackTagProps {
   status: Statuses | undefined;
+  className?: string;
 }
 
-export function OnTrackTag({ status }: OnTrackTagProps) {
+export function OnTrackTag({ status, className }: OnTrackTagProps) {
+  const isOnTrack = status === Statuses.OnTrack;
+
   return (
-    <Pill
-      colour={status === Statuses.OnTrack ? 'brand2-step1' : 'brand3-step1'}
-      padding="XS"
-      className="rounded-S w-fit py-1"
-    >
-      <Text
-        type="p"
-        variant="body"
-        fontSize="XS"
-        colour={status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step0'}
-        className="uppercase tracking-wide"
-      >
-        {status === Statuses.OnTrack ? 'On Track' : 'Off Track'}
-      </Text>
-    </Pill>
+    <Tag
+      pillColor={isOnTrack ? 'brand2-step1' : 'brand3-step1'}
+      textColor={isOnTrack ? 'brand2-step0' : 'brand3-step0'}
+      text={isOnTrack ? 'On Track' : 'Off Track'}
+      className={className}
+    />
   );
 }

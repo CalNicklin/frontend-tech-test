@@ -20,9 +20,13 @@ export const colors = {
 } as const;
 
 export const fontSizes = {
+  /** 20px */
   L: '1.25rem',
+  /** 16px */
   M: '1rem',
+  /** 14px */
   S: '0.875rem',
+  /** 12px */
   XS: '0.75rem',
 } as const;
 

@@ -38,7 +38,7 @@ export function InsightCard({
           </Text>
         </div>
 
-        <div className="L:hidden">
+        <div className="L:hidden w-full flex items-center justify-center">
           <ImpactTag impact={impact} data-testid="impact" />
         </div>
       </div>

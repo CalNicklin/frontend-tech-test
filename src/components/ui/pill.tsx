@@ -13,8 +13,8 @@ const variants = {
     'brand2-step1': 'bg-brand2-step1',
     'brand3-step0': 'bg-brand3-step0',
     'brand3-step1': 'bg-brand3-step1',
-    'neutral-step-0': 'bg-neutral-step-0',
-    'neutral-step-1': 'bg-neutral-step-1',
+    'neutral-step0': 'bg-neutral-step0',
+    'neutral-step1': 'bg-neutral-step1',
   },
   padding: {
     none: '',
