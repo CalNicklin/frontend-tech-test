@@ -67,13 +67,13 @@ function determineStatus(
 
 export function InsightsContainer({ data }: InsightsContainerProps) {
   return (
-    <div className="w-full space-y-6">
-      <div className="relative -mx-6 px-6 S:-mx-8 S:px-8 L:mx-0 L:px-0">
-        <div className="flex gap-4 overflow-x-auto pb-6 L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible">
+    <div className="w-full space-y-L">
+      <div className="relative -mx-L px-L S:-mx-[2rem] S:px-[2rem] L:mx-0 L:px-0">
+        <div className="flex gap-M overflow-x-auto pb-L L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible">
           {INSIGHTS.map((insight) => (
             <div
               key={String(insight.title)}
-              className="min-w-[calc(50%-2rem)] S:min-w-[calc(50%-2rem)] L:min-w-0 L:first:ml-0"
+              className="min-w-[calc(50%-theme(spacing.M))] S:min-w-[calc(50%-theme(spacing.M))] L:min-w-0 L:first:ml-0"
             >
               <InsightCard
                 key={insight.id}

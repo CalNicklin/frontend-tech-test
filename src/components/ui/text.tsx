@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
+const baseClasses = 'font-body break-words';
+
 const variants = {
   variant: {
     body: 'font-body',
@@ -38,7 +40,7 @@ const variants = {
   },
 };
 
-const textVariants = cva('font-body', {
+const textVariants = cva(baseClasses, {
   variants,
   defaultVariants: {
     colour: 'neutral-step-0',

@@ -29,7 +29,7 @@ export function InsightCard({
           />
         </div>
 
-        <div className="flex-grow">
+        <div className="flex-grow overflow-hidden">
           <Text type="p" variant="strong" colour="brand1-step0">
             {heading}
           </Text>
