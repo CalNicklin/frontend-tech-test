@@ -15,7 +15,7 @@ export function InsightsContainer({ data }: InsightsContainerProps) {
       data-testid="insights-container"
     >
       <div className="relative L:px-L">
-        <div className="flex gap-M overflow-x-auto pb-L L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible L:grid-rows-[1fr] L:max-w-screen-XL L:mx-auto">
+        <div className="flex gap-M overflow-x-auto pb-L L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible L:grid-rows-[repeat(2,minmax(0,1fr))] L:max-w-screen-XL L:mx-auto">
           {Object.values(INSIGHTS).map((insight, index, array) => (
             <div
               key={String(insight.title)}
