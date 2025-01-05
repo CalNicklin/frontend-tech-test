@@ -14,17 +14,23 @@ export function App() {
   // TODO: handle loading and error states
 
   return (
-    <main className="flex flex-col p-L gap-y-M max-w-screen-XL mx-auto">
-      <Text
-        type="h2"
-        colour="brand1-step0"
-        variant="strong"
-        fontSize="L"
-        data-testid="feature-heading"
-      >
-        Insights
-      </Text>
-      <InsightsContainer data={data} />
+    <main className="flex flex-col gap-y-M w-full">
+      <div className="px-L">
+        <div className="max-w-screen-XL mx-auto w-full">
+          <Text
+            type="h2"
+            colour="brand1-step0"
+            variant="strong"
+            fontSize="L"
+            data-testid="feature-heading"
+          >
+            Insights
+          </Text>
+        </div>
+      </div>
+      <div className="w-full overflow-visible">
+        <InsightsContainer data={data} />
+      </div>
     </main>
   );
 }

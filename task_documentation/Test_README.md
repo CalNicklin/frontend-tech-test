@@ -1,4 +1,4 @@
-# ClearScore Tech Test
+**# ClearScore Tech Test
 
 Congratulations on being selected to progress to the next stage of the interview process and to complete our tech test. The purpose of this test is to assess the quality of the code that you write, your approach to problem solving, and your ability to reason about the approaches and practices you have implemented.
 
@@ -189,3 +189,4 @@ The additional information can be display how you like (e.g. modal, drawer, tool
 - Scalable / maintainable code
 
 Good luck!
+**

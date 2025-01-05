@@ -14,12 +14,16 @@ export function InsightsContainer({ data }: InsightsContainerProps) {
       className="w-full space-y-L"
       data-testid="insights-container"
     >
-      <div className="relative -mx-L px-L S:-mx-[2rem] S:px-[2rem] L:mx-0 L:px-0">
-        <div className="flex gap-M overflow-x-auto pb-L L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible">
-          {Object.values(INSIGHTS).map((insight) => (
+      <div className="relative L:px-L">
+        <div className="flex gap-M overflow-x-auto pb-L L:grid L:grid-cols-2 XL:grid-cols-3 L:overflow-visible L:grid-rows-[1fr] L:max-w-screen-XL L:mx-auto">
+          {Object.values(INSIGHTS).map((insight, index, array) => (
             <div
               key={String(insight.title)}
-              className="min-w-[calc(50%-theme(spacing.M))] S:min-w-[calc(50%-theme(spacing.M))] L:min-w-0 L:first:ml-0"
+              className={`min-w-[9.375rem] S:min-w-[calc(50%-theme(spacing.M)*2.5)] 
+                L:w-full L:min-w-0 L:first:ml-0 L:h-full
+                ${index === 0 ? 'ml-L' : ''} 
+                ${index === array.length - 1 ? 'mr-L' : ''}
+              `}
             >
               <InsightCard
                 key={insight.id}

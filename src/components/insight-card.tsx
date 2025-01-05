@@ -18,10 +18,10 @@ export function InsightCard({
   status,
 }: InsightCardProps) {
   return (
-    <article>
-      <Card variant="insight" data-testid="insight-card">
+    <article className="h-full min-w-[9.375rem]">
+      <Card variant="insight" data-testid="insight-card" className="h-full">
         <div className="flex flex-col h-full gap-y-M">
-          <header className="L:flex L:flex-row L:gap-M L:items-center">
+          <header className=" gap-S L:flex L:flex-row L:items-center">
             <OnTrackTag status={status} />
             <ImpactTag impact={impact} className="hidden L:block" />
           </header>

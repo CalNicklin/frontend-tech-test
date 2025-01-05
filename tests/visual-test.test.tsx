@@ -31,7 +31,9 @@ test.describe('Credit Report Insights', () => {
         .getByRole('article')
         .filter({ hasText: INSIGHTS.publicInfo.title });
 
-      await page.screenshot({ path: 'test-public-info-card.png' });
+      await page.screenshot({
+        path: 'screenshots/test-results/test-public-info-card.png',
+      });
 
       await expect(
         publicInfoCard.getByTestId('on-track-tag'),
@@ -63,7 +65,9 @@ test.describe('Credit Report Insights', () => {
         .getByRole('article')
         .filter({ hasText: INSIGHTS.electoralRoll.title });
 
-      await page.screenshot({ path: 'test-electoral-roll-card.png' });
+      await page.screenshot({
+        path: 'screenshots/test-results/test-electoral-roll-card.png',
+      });
 
       await expect(
         electoralRollCard.getByTestId('insight-heading'),
@@ -94,7 +98,9 @@ test.describe('Credit Report Insights', () => {
         .getByRole('article')
         .filter({ hasText: INSIGHTS.creditUtilisation.title });
 
-      await page.screenshot({ path: 'test-credit-score-card.png' });
+      await page.screenshot({
+        path: 'screenshots/test-results/test-credit-score-card.png',
+      });
 
       await expect(
         creditScoreCard.getByTestId('insight-heading'),
@@ -118,19 +124,25 @@ test.describe('Credit Report Insights', () => {
     // Mobile view - horizontal scroll
     await page.setViewportSize({ width: 375, height: 800 });
     await expect(page.getByTestId('insights-container')).toHaveScreenshot(
-      'mobile-layout.png',
+      'responsive/small.png',
     );
 
     // Tablet view
     await page.setViewportSize({ width: 768, height: 800 });
     await expect(page.getByTestId('insights-container')).toHaveScreenshot(
-      'tablet-layout.png',
+      'responsive/medium.png',
     );
 
     // Desktop view - grid layout
     await page.setViewportSize({ width: 1024, height: 800 });
     await expect(page.getByTestId('insights-container')).toHaveScreenshot(
-      'desktop-layout.png',
+      'responsive/large.png',
+    );
+
+    // XL view
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(page.getByTestId('insights-container')).toHaveScreenshot(
+      'responsive/xl.png',
     );
   });
 
