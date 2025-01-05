@@ -13,8 +13,9 @@ export function OnTrackTag({ status, className }: OnTrackTagProps) {
     <Tag
       pillColor={isOnTrack ? 'brand2-step1' : 'brand3-step1'}
       textColor={isOnTrack ? 'brand2-step0' : 'brand3-step0'}
-      text={isOnTrack ? 'On Track' : 'Off Track'}
+      text={isOnTrack ? 'on track'.toUpperCase() : 'off track'.toUpperCase()}
       className={className}
+      dataTestId="on-track-tag"
     />
   );
 }

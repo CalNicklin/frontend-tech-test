@@ -106,3 +106,5 @@ Then will go back over and implement all tests.
 Then annotate and document the code, update readme.
 
 Then strip out all the unused code and make sure everything is as clean as possible.
+
+Now I've written my playwright tests and they're failing so I'm checking the tests are correct.

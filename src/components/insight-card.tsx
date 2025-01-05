@@ -18,30 +18,38 @@ export function InsightCard({
   status,
 }: InsightCardProps) {
   return (
-    <Card variant="insight" data-testid="insight-card">
-      <div className="flex flex-col h-full gap-y-M">
-        <div className="L:flex L:flex-row L:gap-M L:items-center">
-          <OnTrackTag status={status} data-testid="status" />
-          <ImpactTag
-            impact={impact}
-            data-testid="impact"
-            className="hidden L:block"
-          />
-        </div>
+    <article>
+      <Card variant="insight" data-testid="insight-card">
+        <div className="flex flex-col h-full gap-y-M">
+          <header className="L:flex L:flex-row L:gap-M L:items-center">
+            <OnTrackTag status={status} />
+            <ImpactTag impact={impact} className="hidden L:block" />
+          </header>
 
-        <div className="flex-grow overflow-hidden">
-          <Text type="p" variant="strong" colour="brand1-step0">
-            {heading}
-          </Text>
-          <Text type="p" variant="body" colour="brand1-step0">
-            {body}
-          </Text>
-        </div>
+          <div className="flex-grow overflow-hidden">
+            <Text
+              type="h3"
+              variant="strong"
+              colour="brand1-step0"
+              data-testid="insight-heading"
+            >
+              {heading}
+            </Text>
+            <Text
+              type="p"
+              variant="body"
+              colour="brand1-step0"
+              data-testid="insight-body"
+            >
+              {body}
+            </Text>
+          </div>
 
-        <div className="L:hidden w-full flex items-center justify-center">
-          <ImpactTag impact={impact} data-testid="impact" />
+          <div className="L:hidden w-full flex items-center justify-center">
+            <ImpactTag impact={impact} />
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </article>
   );
 }

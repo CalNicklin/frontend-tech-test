@@ -11,8 +11,9 @@ export function ImpactTag({ impact, className }: ImpactTagProps) {
     <Tag
       pillColor="neutral-step1"
       textColor="brand1-step0"
-      text={`${impact} impact`}
+      text={`${impact.toUpperCase()} IMPACT`}
       className={className}
+      dataTestId="impact-tag"
     />
   );
 }

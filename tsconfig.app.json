@@ -6,6 +6,6 @@
     "outDir": "dist",
     "useDefineForClassFields": true,
   },
-  "include": ["src", "shared"],
+  "include": ["src", "shared", "tests/visual-test.test.tsx", "playwright.config.ts",],
   "exclude": ["server"]
 }
