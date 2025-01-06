@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+/**
+ * I've pulled this schema from the shape of data returned from the API.
+ * It's hard to know what the actual schema is, so I've just typed it based on the data I've seen.
+ */
 export const CreditReportSchema = z.object({
   accounts: z.array(
     z.union([
@@ -153,6 +157,20 @@ export const CreditReportSchema = z.object({
   }),
 });
 
+/**
+ * Same again here, I've just typed it based on the data I've seen.
+ */
+export const InsightsReportSchema = z.object({
+  title: z.string(),
+  onTrackDescription: z.string(),
+  offTrackDescription: z.string(),
+  details: z.array(z.object({ title: z.string(), description: z.string() })),
+});
+
+/**
+ * These schemas are used to parse specific fields from the CreditReportSchema.
+ */
+
 export const ElectoralRollInsightSchema =
   CreditReportSchema.shape.personal.shape.electoralRoll;
 
@@ -161,9 +179,3 @@ export const PublicInfoInsightSchema =
 
 export const CreditUsageInsightSchema = CreditReportSchema.shape.accounts;
 
-export const InsightsReportSchema = z.object({
-  title: z.string(),
-  onTrackDescription: z.string(),
-  offTrackDescription: z.string(),
-  details: z.array(z.object({ title: z.string(), description: z.string() })),
-});

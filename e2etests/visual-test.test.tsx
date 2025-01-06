@@ -5,6 +5,16 @@ import { env } from '../src/env';
 import mockReport from './mocks/credit-response.json' assert { type: 'json' };
 import mockInsightsReport from './mocks/insight-response.json' assert { type: 'json' };
 
+/**
+ * I started my test approach with this high level integration test. I was concerned about timing and figured that this would yield
+ * the most complete test coverage in a short amount of time.
+ * 
+ * Since then I've added some core functionality unit tests and some contract tests.
+ * 
+ * A limitation of this test suite is that I'm not checking for actually component style values, but I am doing a screenshot comparison.
+ * Also, given the time constraints I haven't added full sad-path testing e.g. error states.
+ */
+
 test.describe('Credit Report Insights', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
