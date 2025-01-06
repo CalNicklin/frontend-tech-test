@@ -1,21 +1,24 @@
 {
   "name": "tech-test",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently -c \"blue.bold,magenta.bold\" -p \"[{name}]\" -n \"SERVER,CLIENT\" \"pnpm run dev:server\" \"pnpm run dev:client\"",
-    "dev:client": "vite",
-    "dev:server": "tsx watch server/src/app.ts",
     "build": "tsc -b && vite build",
     "build:server": "tsc -p tsconfig.node.json",
+    "check": "pnpm run lint && pnpm run typecheck",
+    "dev": "concurrently -c \"blue.bold\" -p \"[{name}]\" -n \"CLIENT\" \"pnpm run dev:client\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/src/app.ts",
     "lint": "eslint .",
     "prettify": "prettier --write \"src/**/*.{ts,tsx,json}\" \"server/src/**/*.{ts,tsx,json}\" \"shared/**/*.{ts,tsx,json}\"",
     "preview": "vite preview",
-    "check": "pnpm run lint && pnpm run typecheck",
+    "test": "vitest",
     "typecheck": "tsc -b",
-    "test": "vitest"
+    "test:pact": "vitest run src/api/api.pact.test.ts",
+    "pact:publish": "pact-broker publish ./pacts --config=pact.config.js"
   },
+  "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-openapi": "^0.16.4",
@@ -40,8 +43,10 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@pact-foundation/pact": "^13.2.0",
     "@playwright/test": "^1.49.1",
     "@testing-library/react": "^16.1.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
@@ -60,6 +65,5 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
-  "prettier": "@vercel/style-guide/prettier",
   "packageManager": "pnpm@9.4.0"
 }

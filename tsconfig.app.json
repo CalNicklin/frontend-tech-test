@@ -9,9 +9,10 @@
   "include": [
     "src",
     "shared",
-    "tests/visual-test.test.tsx",
+    "e2etests/visual-test.test.tsx",
     "playwright.config.ts",
-    "tests/**/*.json"
+    "e2etests/**/*.json",
+    "pact.config.js"
   ],
   "exclude": ["server"]
 }

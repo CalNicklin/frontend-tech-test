@@ -10,6 +10,9 @@ import { CreditReportSchema, InsightsReportSchema } from '../schemas';
 export const api = {
   fetchCreditReport: async () => {
     const response = await fetch(env.CREDIT_REPORT_API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${String(response.status)}`);
+    }
     const json = (await response.json()) as CreditReport;
     const parsed = CreditReportSchema.parse(json);
     return parsed;
@@ -17,6 +20,9 @@ export const api = {
 
   fetchInsights: async () => {
     const response = await fetch(env.INSIGHTS_API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${String(response.status)}`);
+    }
     const json = (await response.json()) as InsightsReport;
     const parsed = InsightsReportSchema.parse(json);
     return parsed;
