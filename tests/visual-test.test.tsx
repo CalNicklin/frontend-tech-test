@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { INSIGHTS } from '@/src/consts';
 import { env } from '../src/env';
 import mockReport from './mocks/credit-response.json' assert { type: 'json' };
+import mockInsightsReport from './mocks/insight-response.json' assert { type: 'json' };
 
 test.describe('Credit Report Insights', () => {
   test.beforeEach(async ({ page }) => {
@@ -146,20 +147,30 @@ test.describe('Credit Report Insights', () => {
     );
   });
 
-  test.fixme('electoral roll drawer interaction', async ({ page }) => {
+  test('electoral roll drawer interaction', async ({ page }) => {
     // Click electoral roll card
     await page
       .getByRole('article')
-      .filter({ hasText: 'Electoral roll' })
+      .filter({ hasText: INSIGHTS.electoralRoll.title })
       .click();
+
+    await page.route(env.INSIGHTS_API_URL, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(mockInsightsReport),
+      });
+    });
+
+    await page.waitForLoadState('networkidle');
 
     // Check drawer appears with correct content
     const drawer = page.getByRole('dialog');
     await expect(drawer).toBeVisible();
-    await expect(drawer).toHaveText('Electoral roll details');
+    await expect(drawer).toContainText('The electoral roll');
 
     // Check drawer can be closed
-    await page.getByRole('button', { name: 'Close' }).click();
+    await page.getByRole('button', { name: 'close' }).click();
     await expect(drawer).not.toBeVisible();
   });
 });
