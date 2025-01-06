@@ -33,34 +33,38 @@ export function InsightCard({
 
   if (drawer && status) {
     return (
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger asChild>
-          <button
-            aria-label="Open insight drawer"
-            type="button"
-            className="w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand1-step2 focus-visible:ring-offset-2 focus-visible:rounded-M"
-          >
-            <InsightCardContent
-              heading={heading}
-              body={body}
-              status={status}
-              impact={impact}
-              drawer={drawer}
-            />
-          </button>
-        </SheetTrigger>
-        <InsightDrawer status={status} isOpen={isOpen} />
-      </Sheet>
+      <article className="h-full min-w-[9.375rem] flex">
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <button
+              aria-label="Open insight drawer"
+              type="button"
+              className="w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand1-step2 focus-visible:ring-offset-2 focus-visible:rounded-M"
+            >
+              <InsightCardContent
+                heading={heading}
+                body={body}
+                status={status}
+                impact={impact}
+                drawer={drawer}
+              />
+            </button>
+          </SheetTrigger>
+          <InsightDrawer status={status} isOpen={isOpen} />
+        </Sheet>
+      </article>
     );
   }
 
   return (
-    <InsightCardContent
-      heading={heading}
-      body={body}
-      status={status}
-      impact={impact}
-      drawer={drawer}
-    />
+    <article className="h-full min-w-[9.375rem] flex">
+      <InsightCardContent
+        heading={heading}
+        body={body}
+        status={status}
+        impact={impact}
+        drawer={drawer}
+      />
+    </article>
   );
 }
