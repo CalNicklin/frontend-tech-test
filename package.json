@@ -13,9 +13,9 @@
     "prettify": "prettier --write \"src/**/*.{ts,tsx,json}\"",
     "preview": "vite preview",
     "test": "pnpm run test:unit && pnpm run test:pact && pnpm run test:playwright",
-    "test:pact": "vitest run src/api/api.pact.test.ts",
+    "test:pact": "vitest --run src/api/api.pact.test.ts",
     "test:playwright": "exec playwright test",
-    "test:unit": "vitest",
+    "test:unit": "vitest --run --exclude \"src/**/*.pact.test.ts\"",
     "typecheck": "tsc -b"
   },
   "prettier": "@vercel/style-guide/prettier",

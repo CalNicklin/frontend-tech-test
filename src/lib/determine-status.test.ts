@@ -93,4 +93,4 @@ describe('determineStatus', () => {
     const status = determineStatus('unknown_category', mockReport);
     expect(status).toBe('off_track');
   });
-});
+})

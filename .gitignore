@@ -158,5 +158,6 @@ dist
 /blob-report/
 /playwright/.cache/
 /screenshots/
+
 # Sentry Config File
 .env.sentry-build-plugin

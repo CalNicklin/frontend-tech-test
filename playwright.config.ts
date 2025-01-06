@@ -51,14 +51,14 @@ export default defineConfig({
     },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+    },
 
     /* Test against branded browsers. */
     // {
@@ -77,7 +77,6 @@ export default defineConfig({
     url: 'http://localhost:5173',
     timeout: 120_000,
     reuseExistingServer: !process.env.CI,
-    stdout: 'pipe',
     stderr: 'pipe',
   },
 });
