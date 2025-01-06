@@ -1,8 +1,8 @@
 import { type CreditReport } from '@shared/types';
 import { INSIGHTS } from '@/src/consts';
 import { Text } from '@/src/components/ui/text';
+import csIcon from '@client/assets/cs-icon.svg';
 import { cn } from '../utils';
-import csIcon from './assets/cs-icon.svg';
 import { ParsedInsightCard } from './parsed-insight-container';
 
 interface InsightsContainerProps {

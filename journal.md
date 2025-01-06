@@ -108,3 +108,11 @@ Then annotate and document the code, update readme.
 Then strip out all the unused code and make sure everything is as clean as possible.
 
 Now I've written my playwright tests and they're failing so I'm checking the tests are correct.
+
+Fixed tests and they're passing.
+
+I've now revised the way the insight container and cards render. Previously I was rendering null if the entire credit schema didnt pass, but now I'm rendering the cards with the data that did pass on a per card basis for better UX.
+
+I've added in some basic Sentry logging. 
+
+Now working on the insight details drawer. Will lean on shadcn/ui radix to implement this quickly and well.

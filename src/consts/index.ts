@@ -13,6 +13,7 @@ export const INSIGHTS = {
     description: 'Being on the electoral roll can improve your score',
     impact: ImpactLevels.Medium,
     schema: ElectoralRollInsightSchema,
+    action: true
   },
   publicInfo: {
     id: 'public-information',
@@ -22,6 +23,7 @@ export const INSIGHTS = {
       'Bankruptcies and individual voluntary arrangements can damage your score',
     impact: ImpactLevels.High,
     schema: PublicInfoInsightSchema,
+    action: false,
   },
   creditUtilisation: {
     id: 'credit-utilisation',
@@ -31,5 +33,6 @@ export const INSIGHTS = {
       'Using more than 50% of your available credit can damage your score',
     impact: ImpactLevels.Medium,
     schema: CreditUsageInsightSchema,
+    action: false,
   },
 } as const;

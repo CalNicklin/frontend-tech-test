@@ -43,6 +43,34 @@ module.exports = {
       boxShadow: {
         default: shadows.default,
       },
+      keyframes: {
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        'fade-out': {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+        'slide-in-from-right': {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+        'slide-out-to-right': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.2s ease-out',
+        'fade-out': 'fade-out 0.2s ease-out',
+        'slide-in-from-right':
+          'slide-in-from-right 0.3s cubic-bezier(.455, .03, .515, .955);',
+        'slide-out-to-right':
+          'slide-out-to-right 0.3s cubic-bezier(.455, .03, .515, .955);',
+        in: 'fade-in 0.2s ease-out',
+        out: 'fade-out 0.2s ease-out',
+      },
     },
   },
   plugins: [],

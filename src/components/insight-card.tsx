@@ -3,12 +3,14 @@ import { Card } from './ui/card';
 import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';
 import { ImpactTag } from './impact-tag';
+import { InsightDrawer } from './insight-drawer';
 
 interface InsightCardProps {
   heading: string;
   body: string;
   impact: ImpactLevels;
   status: Statuses | undefined;
+  drawer?: boolean;
   error?: boolean;
 }
 
@@ -17,10 +19,15 @@ export function InsightCard({
   body,
   impact,
   status,
+  drawer,
 }: InsightCardProps) {
   return (
     <article className="h-full min-w-[9.375rem]">
-      <Card variant="insight" data-testid="insight-card" className="h-full">
+      <Card
+        variant="insight"
+        data-testid="insight-card"
+        className="h-full group"
+      >
         <div className="flex flex-col h-full gap-y-M">
           <header className=" gap-S L:flex L:flex-row L:items-center">
             <OnTrackTag status={status} />
@@ -46,8 +53,14 @@ export function InsightCard({
             </Text>
           </div>
 
+          {drawer && status ? (
+            <div>
+              <InsightDrawer status={status} />
+            </div>
+          ) : null}
+
           <div className="L:hidden w-full flex items-center justify-center">
-            <ImpactTag impact={impact} />
+            <ImpactTag impact={impact} className="min-w-full" />
           </div>
         </div>
       </Card>

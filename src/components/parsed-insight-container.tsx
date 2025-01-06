@@ -50,6 +50,7 @@ export function ParsedInsightCard({ data, insight }: ParsedInsightCardProps) {
       body={insight.description}
       impact={insight.impact}
       status={determineStatus(insight.category, data)}
+      drawer={insight.action}
     />
   );
 }
