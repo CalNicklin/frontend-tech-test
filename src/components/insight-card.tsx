@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { type ImpactLevels, type Statuses } from '@shared/types';
 import { InsightDrawer } from './insight-drawer';
 import { Sheet, SheetTrigger } from './ui/sheet';
@@ -19,10 +20,12 @@ export function InsightCard({
   status,
   drawer,
 }: InsightCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <article className="h-full min-w-[9.375rem]">
       {drawer && status ? (
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger className="w-full" asChild>
             <div>
               <InsightCardContent
@@ -34,7 +37,7 @@ export function InsightCard({
               />
             </div>
           </SheetTrigger>
-          <InsightDrawer status={status} />
+          <InsightDrawer status={status} isOpen={isOpen} />
         </Sheet>
       ) : (
         <InsightCardContent

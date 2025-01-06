@@ -119,3 +119,7 @@ Now working on the insight details drawer. Will lean on shadcn/ui radix to imple
 
 I've added the sheet, ensuring that it works on all widths, handles vertical scrolling, and can be opened from the card or link. I've also added a basic test for it. Data fetching happens on open.
 
+Went back and added a unit test for the determine status function.
+
+Added favicon!
+

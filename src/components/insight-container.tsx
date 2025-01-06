@@ -1,9 +1,9 @@
 import { type CreditReport } from '@shared/types';
 import { INSIGHTS } from '@/src/consts';
 import { Text } from '@/src/components/ui/text';
-import csIcon from '@client/assets/cs-icon.svg';
 import { cn } from '../utils';
 import { ParsedInsightCard } from './parsed-insight-container';
+import { LoadingSpinner } from './ui/loading-spinner';
 
 interface InsightsContainerProps {
   data: CreditReport | undefined;
@@ -17,11 +17,7 @@ export function InsightsContainer({
   isError,
 }: InsightsContainerProps) {
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-full animate-spin">
-        <img src={csIcon} alt="Credit Score Logo" className="w-10 h-10" />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (isError || !data) {

@@ -148,7 +148,6 @@ test.describe('Credit Report Insights', () => {
   });
 
   test('electoral roll drawer interaction', async ({ page }) => {
-    // Click electoral roll card
     await page
       .getByRole('article')
       .filter({ hasText: INSIGHTS.electoralRoll.title })
@@ -164,13 +163,11 @@ test.describe('Credit Report Insights', () => {
 
     await page.waitForLoadState('networkidle');
 
-    // Check drawer appears with correct content
     const drawer = page.getByRole('dialog');
     await expect(drawer).toBeVisible();
     await expect(drawer).toContainText('The electoral roll');
     await expect(drawer).toContainText('ON TRACK');
-    
-    // Check drawer can be closed
+
     await page.getByRole('button', { name: 'close' }).click();
     await expect(drawer).not.toBeVisible();
   });
