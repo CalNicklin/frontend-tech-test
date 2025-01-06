@@ -123,3 +123,6 @@ Went back and added a unit test for the determine status function.
 
 Added favicon!
 
+Missing localisation
+
+Add TS docs comments

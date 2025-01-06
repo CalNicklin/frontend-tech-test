@@ -15,7 +15,7 @@ export function App() {
   }
 
   return (
-    <main className="flex flex-col gap-y-M w-full">
+    <main className="flex flex-col gap-y-M w-full pt-L">
       <div className="px-L">
         <div className="max-w-screen-XL mx-auto w-full">
           <Text
@@ -39,6 +39,3 @@ export function App() {
     </main>
   );
 }
-
-// JOURNAL
-// Check fonts against broswer inspertor
