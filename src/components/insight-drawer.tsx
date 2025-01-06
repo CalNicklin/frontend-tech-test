@@ -1,13 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import {
-  Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from '@client/components/ui/sheet';
-import close from '@client/assets/close.svg';
 import { Statuses } from '@/shared/types';
 import { cn } from '@client/utils';
 import { api } from '../api/api';
@@ -37,62 +34,52 @@ export function InsightDrawer({ status }: { status: Statuses }) {
   }, [data, status]);
 
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Text>Learn more</Text>
-      </SheetTrigger>
-      <SheetContent
-        className={cn(
-          'w-[400px] sm:w-[540px] bg-white',
-          'data-[state=open]:animate-slide-in-from-right',
-          'data-[state=closed]:animate-slide-out-to-right',
-        )}
-        side="right"
-      >
-        <SheetHeader className="space-y-M">
-          <div className="flex items-center justify-between">
-            <OnTrackTag status={status} />
-            <SheetTrigger asChild>
-              <button type="button">
-                <img src={close} alt="Close" />
-              </button>
-            </SheetTrigger>
-          </div>
-          <SheetTitle>
-            <Text
-              variant="strong"
-              colour="brand1-step0"
-              fontSize="L"
-              className="text-left"
-            >
-              {textContent.title}
-            </Text>
-          </SheetTitle>
-        </SheetHeader>
-        <div className="space-y-6">
-          <Text colour="brand1-step0">
-            {status === Statuses.OnTrack
-              ? data?.onTrackDescription
-              : data?.offTrackDescription}
-          </Text>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">
-              {textContent.details.creditScoreTitle}
-            </h3>
-            <p className="text-muted-foreground">
-              {textContent.details.creditScoreDescription}
-            </p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">
-              {textContent.details.moveTitle}
-            </h3>
-            <p className="text-muted-foreground">
-              {textContent.details.moveDescription}
-            </p>
-          </div>
+    <SheetContent
+      className={cn(
+        'w-[25rem] bg-white',
+        'data-[state=open]:animate-slide-in-from-right',
+        'data-[state=closed]:animate-slide-out-to-right',
+      )}
+      side="right"
+    >
+      <SheetHeader className="space-y-L mt-L">
+        <div className="flex items-center justify-between">
+          <OnTrackTag status={status} />
         </div>
-      </SheetContent>
-    </Sheet>
+        <SheetTitle>
+          <Text
+            variant="strong"
+            colour="brand1-step0"
+            fontSize="L"
+            className="text-left mb-XS"
+          >
+            {textContent.title}
+          </Text>
+        </SheetTitle>
+      </SheetHeader>
+      <div className="space-y-L">
+        <Text colour="brand1-step0">
+          {status === Statuses.OnTrack
+            ? data?.onTrackDescription
+            : data?.offTrackDescription}
+        </Text>
+        <div className="space-y-XS">
+          <Text type="h3" colour="brand1-step0" variant="strong">
+            {textContent.details.creditScoreTitle}
+          </Text>
+          <Text colour="brand1-step0">
+            {textContent.details.creditScoreDescription}
+          </Text>
+        </div>
+        <div className="space-y-XS">
+          <Text type="h3" colour="brand1-step0" variant="strong">
+            {textContent.details.moveTitle}
+          </Text>
+          <Text colour="brand1-step0">
+            {textContent.details.moveDescription}
+          </Text>
+        </div>
+      </div>
+    </SheetContent>
   );
 }

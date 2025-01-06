@@ -40,5 +40,6 @@ export function App() {
   );
 }
 
-// Drawer function
+// Drawer function tests
 // JOURNAL
+// Check fonts against broswer inspertor
