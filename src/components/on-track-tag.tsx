@@ -29,13 +29,12 @@ function tagTextColor(status: Statuses | undefined) {
   return status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step0';
 }
 
-export function OnTrackTag({ status, className }: OnTrackTagProps) {
+export function OnTrackTag({ status }: OnTrackTagProps) {
   return (
     <Tag
       pillColor={tagColor(status)}
       textColor={tagTextColor(status)}
       text={tagText(status)}
-      className={className}
       dataTestId="on-track-tag"
     />
   );

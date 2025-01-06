@@ -36,6 +36,7 @@ export function InsightCardContent({
           <Text
             type="h3"
             variant="strong"
+            fontSize="M"
             colour="brand1-step0"
             data-testid="insight-heading"
           >
@@ -45,6 +46,7 @@ export function InsightCardContent({
             type="p"
             variant="body"
             colour="brand1-step0"
+            fontSize="S"
             data-testid="insight-body"
           >
             {body}
@@ -56,6 +58,7 @@ export function InsightCardContent({
             <Text
               variant="strong"
               colour="brand1-step1"
+              fontSize="S"
               className="hover:underline hover:underline-offset-1 hover:decoration-[1.5px] hover:text-brand1-step2"
             >
               Learn more

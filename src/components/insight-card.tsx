@@ -23,11 +23,11 @@ export function InsightCard({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <article className="h-full min-w-[9.375rem]">
+    <article className="h-full min-w-[9.375rem] flex">
       {drawer && status ? (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger className="w-full" asChild>
-            <div>
+          <SheetTrigger className="w-full h-full" asChild>
+            <div className="h-full">
               <InsightCardContent
                 heading={heading}
                 body={body}

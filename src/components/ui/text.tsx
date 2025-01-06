@@ -5,8 +5,8 @@ const baseClasses = 'font-body break-words';
 
 const variants = {
   variant: {
-    body: 'font-body',
-    strong: 'font-strong',
+    body: 'font-body font-normal',
+    strong: 'font-strong font-bold',
   },
   type: {
     p: 'p',
@@ -27,6 +27,16 @@ const variants = {
     /** 12px */
     XS: 'text-XS',
   },
+  lineHeight: {
+    /** 20px */
+    L: 'leading-L',
+    /** 16px */
+    M: 'leading-M',
+    /** 14px */
+    S: 'leading-S',
+    /** 12px */
+    XS: 'leading-XS',
+  },
   colour: {
     'brand1-step0': 'text-brand1-step0',
     'brand1-step1': 'text-brand1-step1',
@@ -45,6 +55,9 @@ const textVariants = cva(baseClasses, {
   defaultVariants: {
     colour: 'neutral-step0',
     type: 'p',
+    fontSize: 'S',
+    lineHeight: 'L',
+    variant: 'body',
   },
 });
 
@@ -62,22 +75,32 @@ export interface TextProps
 const Text = React.forwardRef<
   HTMLParagraphElement | HTMLHeadingElement,
   TextProps
->(({ className, variant, fontSize, colour, type, ...props }, ref) => {
-  const Comp = type ?? 'p';
+>(
+  (
+    { className, variant, fontSize, lineHeight, colour, type, ...props },
+    ref,
+  ) => {
+    const Comp = type ?? 'p';
 
-  // Split into base styles and variant styles
-  const baseStyles = className ?? '';
-  const variantStyles = textVariants({ variant, fontSize, colour });
+    // Split into base styles and variant styles
+    const baseStyles = className ?? '';
+    const variantStyles = textVariants({
+      variant,
+      fontSize,
+      colour,
+      lineHeight,
+    });
 
-  return (
-    <Comp
-      // Force the variant styles to come after the base styles
-      className={`${baseStyles} ${variantStyles}`}
-      ref={ref}
-      {...props}
-    />
-  );
-});
+    return (
+      <Comp
+        // Force the variant styles to come after the base styles
+        className={`${baseStyles} ${variantStyles}`}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
 Text.displayName = 'Text';
 
 export { Text, textVariants, variants };

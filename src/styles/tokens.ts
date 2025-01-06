@@ -43,6 +43,13 @@ export const spacing = {
   XXS: '0.25rem',
 } as const;
 
+export const lineHeights = {
+  L: '1.25rem',
+  M: '1rem',
+  S: '0.875rem',
+  XS: '0.75rem',
+} as const;
+
 export const radii = {
   M: '0.5rem',
   S: '0.25rem',

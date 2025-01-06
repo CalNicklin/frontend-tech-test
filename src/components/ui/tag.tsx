@@ -32,8 +32,9 @@ export function Tag({
         type="p"
         variant="body"
         fontSize="XS"
+        lineHeight="M"
         colour={textColor}
-        className="uppercase text-center leading-XS tracking-wide"
+        className="uppercase text-center leading-[1rem] tracking-wide"
       >
         {text}
       </Text>

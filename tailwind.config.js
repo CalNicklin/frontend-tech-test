@@ -6,6 +6,7 @@ import {
   shadows,
   breakpoints,
   radii,
+  lineHeights,
 } from './src/styles/tokens';
 
 /**
@@ -39,6 +40,9 @@ module.exports = {
       },
       fontWeight: {
         ...fontWeights,
+      },
+      lineHeight: {
+        ...lineHeights,
       },
       boxShadow: {
         default: shadows.default,

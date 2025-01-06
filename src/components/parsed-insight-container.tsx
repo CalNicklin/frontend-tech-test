@@ -39,6 +39,7 @@ export function ParsedInsightCard({ data, insight }: ParsedInsightCardProps) {
         body={insight.description}
         impact={insight.impact}
         status={undefined}
+        drawer={false}
         error
       />
     );
