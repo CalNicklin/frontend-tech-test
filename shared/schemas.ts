@@ -12,7 +12,7 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string(),
+          town: z.string()
         }),
         contentKey: z.string(),
         displayName: z.string(),
@@ -24,17 +24,17 @@ export const CreditReportSchema = z.object({
           balance: z.object({ amount: z.number(), currency: z.string() }),
           frequency: z.string(),
           limit: z.object({ amount: z.number(), currency: z.string() }),
-          accountOpened: z.string(),
+          accountOpened: z.string()
         }),
         paymentHistory: z.array(
           z.object({
             month: z.number(),
             paymentStatus: z.string(),
-            year: z.number(),
-          }),
+            year: z.number()
+          })
         ),
         status: z.string(),
-        supplierName: z.string(),
+        supplierName: z.string()
       }),
       z.object({
         accountCategory: z.string(),
@@ -44,7 +44,7 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string(),
+          town: z.string()
         }),
         contentKey: z.string(),
         displayName: z.string(),
@@ -54,19 +54,19 @@ export const CreditReportSchema = z.object({
           lastUpdated: z.string(),
           balance: z.object({ amount: z.number(), currency: z.string() }),
           frequency: z.string(),
-          accountOpened: z.string(),
+          accountOpened: z.string()
         }),
         paymentHistory: z.array(
           z.object({
             month: z.number(),
             paymentStatus: z.string(),
-            year: z.number(),
-          }),
+            year: z.number()
+          })
         ),
         status: z.string(),
-        supplierName: z.string(),
-      }),
-    ]),
+        supplierName: z.string()
+      })
+    ])
   ),
   personal: z.object({
     electoralRoll: z.array(
@@ -76,15 +76,15 @@ export const CreditReportSchema = z.object({
           format: z.string(),
           postcode: z.string(),
           street: z.string(),
-          town: z.string(),
+          town: z.string()
         }),
         contextKey: z.string(),
         current: z.boolean(),
         endDateString: z.string(),
         name: z.string(),
         startDateString: z.string(),
-        supplied: z.string(),
-      }),
+        supplied: z.string()
+      })
     ),
     publicInfo: z.object({
       courtAndInsolvencies: z.array(
@@ -102,13 +102,13 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string(),
+              town: z.string()
             }),
             type: z.object({
               code: z.string(),
-              details: z.object({ catDesc: z.string() }),
+              details: z.object({ catDesc: z.string() })
             }),
-            startDate: z.string(),
+            startDate: z.string()
           }),
           z.object({
             name: z.string(),
@@ -122,13 +122,13 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string(),
+              town: z.string()
             }),
             type: z.object({
               code: z.string(),
-              details: z.object({ catDesc: z.string() }),
+              details: z.object({ catDesc: z.string() })
             }),
-            startDate: z.string(),
+            startDate: z.string()
           }),
           z.object({
             name: z.string(),
@@ -143,16 +143,17 @@ export const CreditReportSchema = z.object({
               format: z.string(),
               postcode: z.string(),
               street: z.string(),
-              town: z.string(),
+              town: z.string()
             }),
             type: z.object({ code: z.string() }),
-            startDate: z.string(),
-          }),
-        ]),
-      ),
-    }),
-  }),
-});
+            startDate: z.string()
+          })
+        ])
+      )
+    })
+  })
+})
+
 
 // Atomic elements
 const Typography = z.object({

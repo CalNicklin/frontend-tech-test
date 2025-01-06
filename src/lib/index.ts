@@ -2,7 +2,7 @@ import { type CreditReport, Statuses } from '@/shared/types';
 
 export function determineStatus(
   category: string,
-  report: CreditReport['record'],
+  report: CreditReport,
 ): Statuses {
   switch (category) {
     case 'public_info':

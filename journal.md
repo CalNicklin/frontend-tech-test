@@ -116,3 +116,6 @@ I've now revised the way the insight container and cards render. Previously I wa
 I've added in some basic Sentry logging. 
 
 Now working on the insight details drawer. Will lean on shadcn/ui radix to implement this quickly and well.
+
+I've added the sheet, ensuring that it works on all widths, handles vertical scrolling, and can be opened from the card or link. I've also added a basic test for it. Data fetching happens on open.
+
