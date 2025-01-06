@@ -9,10 +9,10 @@ import {
 } from '@client/components/ui/sheet';
 import close from '@client/assets/close.svg';
 import { Statuses } from '@/shared/types';
+import { cn } from '@client/utils';
 import { api } from '../api/api';
 import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';
-import { cn } from '@client/utils';
 
 export function InsightDrawer({ status }: { status: Statuses }) {
   const { data } = useQuery({
@@ -49,26 +49,32 @@ export function InsightDrawer({ status }: { status: Statuses }) {
         )}
         side="right"
       >
-        <SheetHeader className="space-y-4">
+        <SheetHeader className="space-y-M">
           <div className="flex items-center justify-between">
             <OnTrackTag status={status} />
             <SheetTrigger asChild>
               <button type="button">
                 <img src={close} alt="Close" />
-                <span className="sr-only">Close</span>
               </button>
             </SheetTrigger>
           </div>
-          <SheetTitle className="text-2xl font-semibold">
-            {textContent.title}
+          <SheetTitle>
+            <Text
+              variant="strong"
+              colour="brand1-step0"
+              fontSize="L"
+              className="text-left"
+            >
+              {textContent.title}
+            </Text>
           </SheetTitle>
         </SheetHeader>
-        <div className="mt-6 space-y-6">
-          <p className="text-base">
+        <div className="space-y-6">
+          <Text colour="brand1-step0">
             {status === Statuses.OnTrack
               ? data?.onTrackDescription
               : data?.offTrackDescription}
-          </p>
+          </Text>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">
               {textContent.details.creditScoreTitle}
