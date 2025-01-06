@@ -8,7 +8,7 @@
 - Implemented Vercel's house style guide linting presets for code quality
 - Used Tanstack Query for data fetching and caching
 - Implemented Zod for runtime schema validation and type safety
-- [PARKED] Used Hono for the API service, chosen for its strong Zod integration
+- [PARKED] Used Hono for the API service, chosen for its strong Zod integration (ask me to see this!)
 - Integrated Playwright for browser-level testing
 - Added basic Sentry logging for production error tracking
 - Utilized shadcn/ui (Radix) for the insight details drawer implementation
@@ -28,6 +28,8 @@
 2. **Testing Coverage**: While key functionality is tested (including Playwright tests for critical user flows), there could be room for more comprehensive test coverage.
 
 3. **Localisation**: Didn't implement localisation due to time constraints
+
+4. **Storybook**: Would have been useful as a tool for component development, design collaboration and documentation
 
 ## Additional Notes
 
