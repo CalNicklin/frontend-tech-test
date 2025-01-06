@@ -8,7 +8,8 @@ import {
 
 /**
  * I like implementing typesafe Text, UI components with CVA.
- * We lock in the available variants with intellisense, and can easily add new ones.
+ * It's especially useful for components with many variants like buttons, text, etc.
+ * Because it can be nicely setup in Storybook, and we lock in the available variants with intellisense, and can easily add new ones.
  *
  * The available variants are tied to the design system and I'd expect an agreement between
  * dev and design to ensure the naming is consistent.
