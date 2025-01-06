@@ -56,20 +56,27 @@ pnpm build:server
 ## Project Structure
 
 ```
-├── client/              # Client-side code
-├── server/           # Node.js server (Hono)
-├── shared/           # Shared types and utilities
-└── public/           # Static assets
+├── src/                # Source files
+│   ├── app/           # App-level components and providers
+│   ├── components/    # Reusable UI components
+│   ├── features/      # Feature-specific components and logic
+│   ├── lib/           # Utilities and configuration
+│   ├── server/        # Server-side code
+│   └── types/         # TypeScript type definitions
+├── public/            # Static assets
+└── tests/             # Test files
 ```
 
 ## Path Aliases
 
 The project uses TypeScript path aliases for cleaner imports:
 
-- `@/*` - Root directory
-- `@/*` - Client source files
-- `@server/*` - Server source files
-- `@shared/*` - Shared utilities and types
+- `@/*` - Source directory
+- `@/components/*` - UI Components
+- `@/features/*` - Feature modules
+- `@/lib/*` - Utilities and configuration
+- `@/server/*` - Server-side code
+- `@/types/*` - TypeScript types
 
 ## Environment Variables
 
@@ -78,8 +85,7 @@ The application uses typed environment variables. Required variables:
 - `NODE_ENV` - Environment mode (development/production)
 - `PORT` - Server port number
 - `LOG_LEVEL` - Server logging level
-- `CREDIT_REPORT_API_URL` - Credit report API endpoint
-- `INSIGHT_API_URL` - Insights API endpoint
+- `EXTERNAL_API_URL` - External API endpoint
 - `API_URL` - Local API endpoint
 
 Environment variables are validated at runtime using Zod. The application will exit if required variables are missing or invalid.

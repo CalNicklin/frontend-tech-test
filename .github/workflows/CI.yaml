@@ -1,4 +1,4 @@
-name: CI Pipeline 🔍🧹🧪🎭
+name: Pipeline 🔍🧹🧪🎭
 
 on:
   pull_request:
@@ -55,7 +55,7 @@ jobs:
         run: pnpm install
 
       - name: Unit Tests 🧪
-        run: pnpm run test
+        run: pnpm run test:unit
 
   playwright:
     timeout-minutes: 60
