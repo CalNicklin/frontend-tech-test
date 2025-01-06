@@ -1,4 +1,4 @@
-import { cn } from '@/utils';
+import { cn } from '@/components/lib/utils';
 import { Pill, type PillVariantProps } from './pill';
 import { Text, type TextVariantProps } from './text';
 

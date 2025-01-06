@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { INSIGHTS } from '@/consts';
-import { type CreditReport } from '@/types';
+import { type CreditReport } from '@/types/types';
 import { env } from '../src/env';
 import mockReport from './mocks/credit-response.json' assert { type: 'json' };
 import mockInsightsReport from './mocks/insight-response.json' assert { type: 'json' };

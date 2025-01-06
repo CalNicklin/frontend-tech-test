@@ -1,4 +1,4 @@
-import { Statuses } from '@/types';
+import { Statuses } from '@/types/types';
 import { Tag } from './ui/tag';
 
 interface OnTrackTagProps {

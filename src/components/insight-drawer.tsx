@@ -7,8 +7,8 @@ import {
   SheetTitle,
   SheetDescription,
 } from '@/components/ui/sheet';
-import { Statuses } from '@/types';
-import { cn } from '@/utils';
+import { Statuses } from '@/types/types';
+import { cn } from '@/components/lib/utils';
 import { api } from '../api/api';
 import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';

@@ -1,5 +1,5 @@
-import { type ImpactLevels, type Statuses } from '@/types';
-import { cn } from '../utils';
+import { type ImpactLevels, type Statuses } from '@/types/types';
+import { cn } from './lib/utils';
 import { Card } from './ui/card';
 import { ImpactTag } from './impact-tag';
 import { OnTrackTag } from './on-track-tag';

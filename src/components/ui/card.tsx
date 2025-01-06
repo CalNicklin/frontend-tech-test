@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/utils';
+import { cn } from '@/components/lib/utils';
 
 const baseClasses = cn('font-body text-neutral-step0 flex bg-white rounded-M');
 

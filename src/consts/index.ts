@@ -1,9 +1,9 @@
-import { ImpactLevels } from '@/types';
+import { ImpactLevels } from '@/types/types';
 import {
   CreditUsageInsightSchema,
   ElectoralRollInsightSchema,
   PublicInfoInsightSchema,
-} from '../schemas';
+} from '../types/schemas';
 
 export const INSIGHTS = {
   electoralRoll: {

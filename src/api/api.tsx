@@ -1,6 +1,6 @@
 import { env } from '@/env';
-import type { CreditReport, InsightsReport } from '../types';
-import { CreditReportSchema, InsightsReportSchema } from '../schemas';
+import type { CreditReport, InsightsReport } from '../types/types';
+import { CreditReportSchema, InsightsReportSchema } from '../types/schemas';
 
 /**
  * A typesafe API client for the credit report and insights report.

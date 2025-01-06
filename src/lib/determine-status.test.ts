@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import mockReport from '../../e2etests/mocks/credit-response.json' assert { type: 'json' };
-import { type CreditReport } from '../types';
+import { type CreditReport } from '../types/types';
 import { determineStatus } from './index';
 
 describe('determineStatus', () => {

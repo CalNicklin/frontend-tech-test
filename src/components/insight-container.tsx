@@ -1,7 +1,7 @@
-import { type CreditReport } from '@/types';
+import { type CreditReport } from '@/types/types';
 import { INSIGHTS } from '@/consts';
 import { Text } from '@/components/ui/text';
-import { cn } from '../utils';
+import { cn } from './lib/utils';
 import { ParsedInsightCard } from './parsed-insight-container';
 import { LoadingSpinner } from './ui/loading-spinner';
 

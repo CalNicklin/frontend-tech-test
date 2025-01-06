@@ -1,4 +1,4 @@
-import { type CreditReport, Statuses } from '@/types';
+import { type CreditReport, Statuses } from '@/types/types';
 
 export function determineStatus(
   category: string,
