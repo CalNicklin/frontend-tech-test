@@ -1,11 +1,12 @@
 import { env } from '@/env';
 import type { CreditReport, InsightsReport } from '../types/types';
-import { CreditReportSchema, InsightsReportSchema } from '../types/schemas';
+import { InsightsReportSchema } from '../types/schemas';
 
 /**
  * A typesafe API client for the credit report and insights report.
- * By using zod to parse the data, we get runtime validation of the data, as well as inference of the data type.
- * Threading type safety through the react query client
+ * The credit report data is returned without schema validation to allow components
+ * to validate their specific needs, while the insights report uses zod for full validation.
+ * This approach allows for granular error handling at the component level for credit report data.
  */
 export const api = {
   fetchCreditReport: async () => {
@@ -14,8 +15,7 @@ export const api = {
       throw new Error(`HTTP error! status: ${String(response.status)}`);
     }
     const json = (await response.json()) as CreditReport;
-    const parsed = CreditReportSchema.parse(json);
-    return parsed;
+    return json;
   },
 
   fetchInsights: async () => {
