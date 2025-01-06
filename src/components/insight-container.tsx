@@ -42,7 +42,7 @@ export function InsightsContainer({
             <div
               key={String(insight.title)}
               className={cn(
-                'min-w-[9.375rem] S:min-w-[calc(50%-theme(spacing.M)*2.5)]',
+                'min-w-[9.375rem] S:min-w-[calc(50%-theme(spacing.M)*2)]',
                 'L:w-full L:min-w-0 L:first:ml-0 L:h-full',
                 index === 0 ? 'ml-L' : '',
                 index === array.length - 1 ? 'mr-L' : '',

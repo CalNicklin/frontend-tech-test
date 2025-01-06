@@ -11,8 +11,9 @@ config({ path: path.resolve(__dirname, '.env.test') });
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+// eslint-disable-next-line import/no-default-export -- required for playwright
 export default defineConfig({
-  testDir: './tests',
+  testDir: './e2etests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

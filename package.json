@@ -1,22 +1,22 @@
 {
   "name": "tech-test",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
-    "build:server": "tsc -p tsconfig.node.json",
     "check": "pnpm run lint && pnpm run typecheck",
     "dev": "concurrently -c \"blue.bold\" -p \"[{name}]\" -n \"CLIENT\" \"pnpm run dev:client\"",
     "dev:client": "vite",
-    "dev:server": "tsx watch server/src/app.ts",
     "lint": "eslint .",
+    "pact:publish": "pact-broker publish ./pacts --config=pact.config.js",
     "prettify": "prettier --write \"src/**/*.{ts,tsx,json}\" \"server/src/**/*.{ts,tsx,json}\" \"shared/**/*.{ts,tsx,json}\"",
     "preview": "vite preview",
-    "test": "vitest",
-    "typecheck": "tsc -b",
+    "test": "pnpm run test:unit && pnpm run test:pact && pnpm run test:playwright",
     "test:pact": "vitest run src/api/api.pact.test.ts",
-    "pact:publish": "pact-broker publish ./pacts --config=pact.config.js"
+    "test:playwright": "exec playwright test",
+    "test:unit": "vitest",
+    "typecheck": "tsc -b"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {

@@ -114,7 +114,7 @@ export function InsightDrawer({
             variant="strong"
             colour="brand1-step0"
             fontSize="L"
-            
+
             className="text-left mb-XS"
           >
             {textContent.title}
