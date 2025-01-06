@@ -1,6 +1,5 @@
 import { config } from 'dotenv';
 
-// Try to load from .env.test first
 config({ path: '.env.test' });
 
 // Set fallback values for required environment variables
