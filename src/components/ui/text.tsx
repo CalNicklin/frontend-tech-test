@@ -1,5 +1,19 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import {
+  type FontSizeKeys,
+  type LineHeightKeys,
+  type ColorKeys,
+} from '@/styles/tokens';
+
+/**
+ * I like implementing typesafe Text, UI components with CVA.
+ * We lock in the available variants with intellisense, and can easily add new ones.
+ *
+ * The available variants are tied to the design system and I'd expect an agreement between
+ * dev and design to ensure the naming is consistent.
+ *
+ */
 
 const baseClasses = 'font-body break-words';
 
@@ -26,7 +40,7 @@ const variants = {
     S: 'text-S',
     /** 12px */
     XS: 'text-XS',
-  },
+  } satisfies Record<FontSizeKeys, string>,
   lineHeight: {
     /** 20px */
     L: 'leading-L',
@@ -36,7 +50,7 @@ const variants = {
     S: 'leading-S',
     /** 12px */
     XS: 'leading-XS',
-  },
+  } satisfies Record<LineHeightKeys, string>,
   colour: {
     'brand1-step0': 'text-brand1-step0',
     'brand1-step1': 'text-brand1-step1',
@@ -47,8 +61,8 @@ const variants = {
     'brand3-step1': 'text-brand3-step1',
     'neutral-step0': 'text-neutral-step0',
     'neutral-step1': 'text-neutral-step1',
-  },
-};
+  } satisfies Record<ColorKeys, string>,
+} as const;
 
 const textVariants = cva(baseClasses, {
   variants,
