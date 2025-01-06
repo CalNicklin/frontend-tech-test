@@ -153,6 +153,14 @@ export const CreditReportSchema = z.object({
   }),
 });
 
+export const ElectoralRollInsightSchema =
+  CreditReportSchema.shape.personal.shape.electoralRoll;
+
+export const PublicInfoInsightSchema =
+  CreditReportSchema.shape.personal.shape.publicInfo.shape.courtAndInsolvencies;
+
+export const CreditUsageInsightSchema = CreditReportSchema.shape.accounts;
+
 export const InsightsReportSchema = z.object({
   title: z.string(),
   onTrackDescription: z.string(),

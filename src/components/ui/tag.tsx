@@ -10,7 +10,13 @@ interface TagProps {
   dataTestId?: string;
 }
 
-export function Tag({ pillColor, textColor, text, className, dataTestId }: TagProps) {
+export function Tag({
+  pillColor,
+  textColor,
+  text,
+  className,
+  dataTestId,
+}: TagProps) {
   return (
     <Pill
       role="status"

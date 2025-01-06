@@ -1,13 +1,40 @@
 import { type CreditReport } from '@shared/types';
 import { INSIGHTS } from '@/src/consts';
-import { determineStatus } from '@/src/lib';
-import { InsightCard } from './insight-card';
+import { Text } from '@/src/components/ui/text';
+import { cn } from '../utils';
+import { ParsedInsightCard } from './parsed-insight-container';
 
 interface InsightsContainerProps {
-  data: CreditReport['record'];
+  data: CreditReport | undefined;
+  isLoading: boolean;
+  isError: boolean;
+  loadingIcon: string;
 }
 
-export function InsightsContainer({ data }: InsightsContainerProps) {
+export function InsightsContainer({
+  data,
+  isLoading,
+  isError,
+  loadingIcon,
+}: InsightsContainerProps) {
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-full animate-spin">
+        <img src={loadingIcon} alt="Credit Score Logo" className="w-10 h-10" />
+      </div>
+    );
+  }
+
+  if (isError || !data) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <Text type="h2" colour="brand1-step0" variant="strong" fontSize="L">
+          An error occurred while loading your credit report
+        </Text>
+      </div>
+    );
+  }
+
   return (
     <section
       aria-label="Credit report insights"
@@ -19,18 +46,17 @@ export function InsightsContainer({ data }: InsightsContainerProps) {
           {Object.values(INSIGHTS).map((insight, index, array) => (
             <div
               key={String(insight.title)}
-              className={`min-w-[9.375rem] S:min-w-[calc(50%-theme(spacing.M)*2.5)] 
-                L:w-full L:min-w-0 L:first:ml-0 L:h-full
-                ${index === 0 ? 'ml-L' : ''} 
-                ${index === array.length - 1 ? 'mr-L' : ''}
-              `}
+              className={cn(
+                'min-w-[9.375rem] S:min-w-[calc(50%-theme(spacing.M)*2.5)]',
+                'L:w-full L:min-w-0 L:first:ml-0 L:h-full',
+                index === 0 ? 'ml-L' : '',
+                index === array.length - 1 ? 'mr-L' : '',
+              )}
             >
-              <InsightCard
+              <ParsedInsightCard
                 key={insight.id}
-                heading={insight.title}
-                body={insight.description}
-                impact={insight.impact}
-                status={determineStatus(insight.category, data)}
+                data={data}
+                insight={insight}
               />
             </div>
           ))}

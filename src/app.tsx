@@ -2,16 +2,17 @@ import { useQuery } from '@tanstack/react-query';
 import { Text } from './components/ui/text';
 import { InsightsContainer } from './components/insight-container';
 import { api } from './api/api';
+import csIcon from './assets/cs-icon.svg';
 
 export function App() {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isError, error, isLoading } = useQuery({
     queryKey: ['credit'],
     queryFn: api.fetchCreditReport,
   });
 
-  if (!data) return null;
-
-  // TODO: handle loading and error states
+  if (error) {
+    console.error(error);
+  }
 
   return (
     <main className="flex flex-col gap-y-M w-full">
@@ -29,14 +30,17 @@ export function App() {
         </div>
       </div>
       <div className="w-full overflow-visible">
-        <InsightsContainer data={data} />
+        <InsightsContainer
+          data={data}
+          isLoading={isLoading}
+          isError={isError}
+          loadingIcon={csIcon}
+        />
       </div>
     </main>
   );
 }
 
-// WRITE TESTS TO CHECK EVERYTHING SETOUT IN README
-// ACCESSIBILITY CHECK
-// We are zod parsing an entire credit report, should we actuallly handle zod parsing just the insight data on a per card basis?
-// We can still render each card as there is statuc content, we jsut need to handle the error state for missing information.
-// Check semantic html for cards and text.
+// Drawer function
+// JOURNAL
+// CI

@@ -1,4 +1,9 @@
 import { ImpactLevels } from '@/shared/types';
+import {
+  CreditUsageInsightSchema,
+  ElectoralRollInsightSchema,
+  PublicInfoInsightSchema,
+} from '../schemas';
 
 export const INSIGHTS = {
   electoralRoll: {
@@ -7,6 +12,7 @@ export const INSIGHTS = {
     title: 'Electoral roll',
     description: 'Being on the electoral roll can improve your score',
     impact: ImpactLevels.Medium,
+    schema: ElectoralRollInsightSchema,
   },
   publicInfo: {
     id: 'public-information',
@@ -15,6 +21,7 @@ export const INSIGHTS = {
     description:
       'Bankruptcies and individual voluntary arrangements can damage your score',
     impact: ImpactLevels.High,
+    schema: PublicInfoInsightSchema,
   },
   creditUtilisation: {
     id: 'credit-utilisation',
@@ -23,5 +30,6 @@ export const INSIGHTS = {
     description:
       'Using more than 50% of your available credit can damage your score',
     impact: ImpactLevels.Medium,
+    schema: CreditUsageInsightSchema,
   },
 } as const;

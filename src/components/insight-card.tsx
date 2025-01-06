@@ -8,7 +8,8 @@ interface InsightCardProps {
   heading: string;
   body: string;
   impact: ImpactLevels;
-  status: Statuses;
+  status: Statuses | undefined;
+  error?: boolean;
 }
 
 export function InsightCard({

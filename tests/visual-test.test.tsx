@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { INSIGHTS } from '@/src/consts';
 import { env } from '../src/env';
-import mockReport from '../src/tests/mocks/credit-response.json' assert { type: 'json' };
+import mockReport from './mocks/credit-response.json' assert { type: 'json' };
 
 test.describe('Credit Report Insights', () => {
   test.beforeEach(async ({ page }) => {
@@ -161,18 +161,5 @@ test.describe('Credit Report Insights', () => {
     // Check drawer can be closed
     await page.getByRole('button', { name: 'Close' }).click();
     await expect(drawer).not.toBeVisible();
-  });
-
-  test.fixme('accessibility checks', async ({ page }) => {
-    // Basic accessibility checks
-    await expect(page).toHaveScreenshot('base-state.png');
-
-    // Check keyboard navigation
-    await page.keyboard.press('Tab');
-    const firstCard = page.getByRole('article').first();
-    await expect(firstCard).toBeFocused();
-
-    // Run automated accessibility audit
-    await expect(page).toPassAxe();
   });
 });

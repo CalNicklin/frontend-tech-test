@@ -35,15 +35,15 @@ const variants = {
     'brand2-step1': 'text-brand2-step1',
     'brand3-step0': 'text-brand3-step0',
     'brand3-step1': 'text-brand3-step1',
-    'neutral-step-0': 'text-neutral-step-0',
-    'neutral-step-1': 'text-neutral-step-1',
+    'neutral-step0': 'text-neutral-step0',
+    'neutral-step1': 'text-neutral-step1',
   },
 };
 
 const textVariants = cva(baseClasses, {
   variants,
   defaultVariants: {
-    colour: 'neutral-step-0',
+    colour: 'neutral-step0',
     type: 'p',
   },
 });

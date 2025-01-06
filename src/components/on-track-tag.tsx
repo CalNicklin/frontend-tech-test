@@ -6,14 +6,35 @@ interface OnTrackTagProps {
   className?: string;
 }
 
-export function OnTrackTag({ status, className }: OnTrackTagProps) {
-  const isOnTrack = status === Statuses.OnTrack;
+function tagText(status: Statuses | undefined) {
+  if (status === undefined) {
+    return 'status not available'.toUpperCase();
+  }
+  return status === Statuses.OnTrack
+    ? 'on track'.toUpperCase()
+    : 'off track'.toUpperCase();
+}
 
+function tagColor(status: Statuses | undefined) {
+  if (status === undefined) {
+    return 'neutral-step1';
+  }
+  return status === Statuses.OnTrack ? 'brand2-step1' : 'brand3-step1';
+}
+
+function tagTextColor(status: Statuses | undefined) {
+  if (status === undefined) {
+    return 'neutral-step0';
+  }
+  return status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step0';
+}
+
+export function OnTrackTag({ status, className }: OnTrackTagProps) {
   return (
     <Tag
-      pillColor={isOnTrack ? 'brand2-step1' : 'brand3-step1'}
-      textColor={isOnTrack ? 'brand2-step0' : 'brand3-step0'}
-      text={isOnTrack ? 'on track'.toUpperCase() : 'off track'.toUpperCase()}
+      pillColor={tagColor(status)}
+      textColor={tagTextColor(status)}
+      text={tagText(status)}
       className={className}
       dataTestId="on-track-tag"
     />
