@@ -168,7 +168,8 @@ test.describe('Credit Report Insights', () => {
     const drawer = page.getByRole('dialog');
     await expect(drawer).toBeVisible();
     await expect(drawer).toContainText('The electoral roll');
-
+    await expect(drawer).toContainText('ON TRACK');
+    
     // Check drawer can be closed
     await page.getByRole('button', { name: 'close' }).click();
     await expect(drawer).not.toBeVisible();

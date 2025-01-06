@@ -36,7 +36,7 @@ export function InsightDrawer({ status }: { status: Statuses }) {
   return (
     <SheetContent
       className={cn(
-        'w-[25rem] bg-white',
+        'bg-white',
         'data-[state=open]:animate-slide-in-from-right',
         'data-[state=closed]:animate-slide-out-to-right',
       )}
