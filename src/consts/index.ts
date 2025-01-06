@@ -5,6 +5,11 @@ import {
   PublicInfoInsightSchema,
 } from '../types/schemas';
 
+/**
+ * A list of insights that will be displayed in the insights container.
+ * In reality, this would be fetched from the server, and most likely the entire app would be SDui, 
+ * so this schema would be far extended to include styling etc.
+ */
 export const INSIGHTS = {
   electoralRoll: {
     id: 'electoral-roll',

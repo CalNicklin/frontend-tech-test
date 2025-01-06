@@ -14,6 +14,14 @@ import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';
 import { LoadingSpinner } from './ui/loading-spinner';
 
+/**
+ * This component is a drawer that displays the details of an insight.
+ * It is used to display the details of an insight when the user clicks on an insight card.
+ *
+ * This component fetches insight details from the API and displays them in the drawer. I'd use a wquery key per insight to cache the details if this stayed on the client
+ *
+ * Again, I've implement some rough logic to handle loading and error states, but would expect to collab with design on the UI.
+ */
 export function InsightDrawer({
   status,
   isOpen,

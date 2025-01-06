@@ -13,6 +13,11 @@ interface InsightCardContentProps {
   drawer: boolean;
 }
 
+/**
+ * Content inside the insight card.
+ *
+ * Uses CSS classes to position the impact tag at the bottom of the card on mobile, and at the top of the card on desktop.
+ */
 export function InsightCardContent({
   heading,
   body,

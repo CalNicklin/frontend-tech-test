@@ -11,6 +11,14 @@ interface InsightsContainerProps {
   isError: boolean;
 }
 
+/**
+ * This is the main container for the insights feature.
+ * It will display a loading spinner if the data is loading, an error message if there is an error,
+ * or the insights if the data is loaded.
+ *
+ * I've gone with a simple approach to handling an error in fetching the credit report data,
+ * but would expect a designed error state, likewise for loading.
+ */
 export function InsightsContainer({
   data,
   isLoading,

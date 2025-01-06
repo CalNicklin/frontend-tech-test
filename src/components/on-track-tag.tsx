@@ -1,40 +1,46 @@
 import { Statuses } from '@/types/types';
 import { Tag } from './ui/tag';
+import { type TextVariantProps } from './ui/text';
+import { type PillVariantProps } from './ui/pill';
 
 interface OnTrackTagProps {
   status: Statuses | undefined;
   className?: string;
 }
 
-function tagText(status: Statuses | undefined) {
+function getTagProperties(status: Statuses | undefined): {
+  text: string;
+  color: PillVariantProps['colour'];
+  textColor: TextVariantProps['colour'];
+} {
   if (status === undefined) {
-    return 'status not available'.toUpperCase();
+    return {
+      text: 'status not available'.toUpperCase(),
+      color: 'neutral-step1',
+      textColor: 'neutral-step0',
+    };
   }
+
   return status === Statuses.OnTrack
-    ? 'on track'.toUpperCase()
-    : 'off track'.toUpperCase();
-}
-
-function tagColor(status: Statuses | undefined) {
-  if (status === undefined) {
-    return 'neutral-step1';
-  }
-  return status === Statuses.OnTrack ? 'brand2-step1' : 'brand3-step1';
-}
-
-function tagTextColor(status: Statuses | undefined) {
-  if (status === undefined) {
-    return 'neutral-step0';
-  }
-  return status === Statuses.OnTrack ? 'brand2-step0' : 'brand3-step0';
+    ? {
+        text: 'on track'.toUpperCase(),
+        color: 'brand2-step1',
+        textColor: 'brand2-step0',
+      }
+    : {
+        text: 'off track'.toUpperCase(),
+        color: 'brand3-step1',
+        textColor: 'brand3-step0',
+      };
 }
 
 export function OnTrackTag({ status }: OnTrackTagProps) {
+  const { text, color, textColor } = getTagProperties(status);
   return (
     <Tag
-      pillColor={tagColor(status)}
-      textColor={tagTextColor(status)}
-      text={tagText(status)}
+      pillColor={color}
+      textColor={textColor}
+      text={text}
       dataTestId="on-track-tag"
     />
   );

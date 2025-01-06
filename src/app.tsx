@@ -4,6 +4,10 @@ import { Text } from './components/ui/text';
 import { InsightsContainer } from './components/insight-container';
 import { api } from './api/api';
 
+/**
+ * This would be the main entry point of the 'feature' component
+ * in a larger application.
+ */
 export function App() {
   const { data, isError, error, isLoading } = useQuery({
     queryKey: ['credit'],

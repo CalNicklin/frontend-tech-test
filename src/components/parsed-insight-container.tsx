@@ -22,6 +22,14 @@ function getInsightData(
   return data.accounts;
 }
 
+/**
+ * Takes the data and insight, and validates the credit report data against the schema required for a given insight.
+ * This is so we can handle errors gracefully, and display an error state if the data is invalid on a PER CARD basis,
+ * rather than failing to parse the entire credit report.
+ * If the data is valid, it will display the insight.
+ *
+ * This is a simple approach, and would be improved in a larger application, something like GraphQL could work well here.
+ */
 export function ParsedInsightCard({ data, insight }: ParsedInsightCardProps) {
   const validateData = insight.schema.safeParse(getInsightData(data, insight));
 
