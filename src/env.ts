@@ -1,33 +1,43 @@
 /* eslint-disable no-console -- we want to log errors to the console at this stage, pre client build */
-import path from 'node:path';
-import { config } from 'dotenv';
-import { expand } from 'dotenv-expand';
 import { z } from 'zod';
-
-expand(
-  config({
-    path: path.resolve(
-      process.cwd(),
-      process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
-    ),
-  }),
-);
 
 const EnvSchema = z.object({
   NODE_ENV: z.string().default('development'),
-  API_URL: z.string().url(),
+  CREDIT_REPORT_API_URL: z.string().url(),
+  INSIGHTS_API_URL: z.string().url(),
+  SENTRY_DSN: z.string().url(),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
 
-const { data: parsedEnv, error } = EnvSchema.safeParse(process.env);
+// Helper function to get environment variables
+const getEnvVars = () => {
+  // Check if we're in Vite context
+  if (typeof import.meta.env !== 'undefined') {
+    return {
+      NODE_ENV: import.meta.env.MODE,
+      CREDIT_REPORT_API_URL: import.meta.env
+        .VITE_CREDIT_REPORT_API_URL as string,
+      INSIGHTS_API_URL: import.meta.env.VITE_INSIGHTS_API_URL as string,
+      SENTRY_DSN: import.meta.env.VITE_SENTRY_DSN as string,
+    };
+  }
+
+  // Fallback to process.env for Node.js environment (playwright etc)
+  return {
+    NODE_ENV: process.env.NODE_ENV,
+    CREDIT_REPORT_API_URL: process.env.VITE_CREDIT_REPORT_API_URL,
+    INSIGHTS_API_URL: process.env.VITE_INSIGHTS_API_URL,
+    SENTRY_DSN: process.env.VITE_SENTRY_DSN,
+  };
+};
+
+const { data: parsedEnv, error } = EnvSchema.safeParse(getEnvVars());
 
 if (error) {
   console.error('❌ Invalid env:');
   console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
-  process.exit(1);
+  throw error;
 }
 
-// Since we exit the process if there's an error,
-// we can safely assert that parsedEnv exists here
 export const env = parsedEnv;

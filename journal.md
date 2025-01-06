@@ -79,5 +79,50 @@ Noticed in CI that my credit route tests failing - because I had forgot to updat
 
 Resolved a weird git error where app.tsx / App.tsx filename not recognised.
 
+Setup tailwind and removed default styles.
 
+Now working on the base UI building blocks.
 
+Made base text and card components, now pill.
+
+Revising my insight cards component to better work with SDui principles
+
+Added SDui renderer component.
+
+Just spent a while fixing the api communication. Data servuice wasnt fully initialised in the server, so data was undefined AND my typed env wasnt working on the client due to node:path. Fixed tests.
+
+Going to park the SDui approach. I'm concerned about time and scope. I'm going to implement something solid, prod ready, and then I can come back to SDui.
+
+Have implemented insight cards and their building blocks.
+
+ALso made a basic react query client.
+
+Now want to implement the insight details drawer.
+
+THen need to handle loading states and errors.
+
+Then will go back over and implement all tests.
+
+Then annotate and document the code, update readme.
+
+Then strip out all the unused code and make sure everything is as clean as possible.
+
+Now I've written my playwright tests and they're failing so I'm checking the tests are correct.
+
+Fixed tests and they're passing.
+
+I've now revised the way the insight container and cards render. Previously I was rendering null if the entire credit schema didnt pass, but now I'm rendering the cards with the data that did pass on a per card basis for better UX.
+
+I've added in some basic Sentry logging. 
+
+Now working on the insight details drawer. Will lean on shadcn/ui radix to implement this quickly and well.
+
+I've added the sheet, ensuring that it works on all widths, handles vertical scrolling, and can be opened from the card or link. I've also added a basic test for it. Data fetching happens on open.
+
+Went back and added a unit test for the determine status function.
+
+Added favicon!
+
+Missing localisation
+
+Add TS docs comments

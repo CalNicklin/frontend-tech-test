@@ -1,0 +1,15 @@
+{
+  "title": "The electoral roll",
+  "onTrackDescription": "You are on the electoral roll at your current address",
+  "offTrackDescription": "You are on not the electoral roll at your current address",
+  "details": [
+    {
+      "title": "How this affects your credit score",
+      "description": "Being on the electoral roll, which means you're registered to vote, will be viewed positively by lenders as it helps them to identify you. We can see that you're on the electoral roll at the your current address."
+    },
+    {
+      "title": "What to do if you move",
+      "description": "If you move house, make sure you register to vote at your new address. The council will report any changes on your electoral roll record to Equifax, and it should appear automatically on your report."
+    }
+  ]
+}
