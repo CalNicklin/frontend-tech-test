@@ -2,25 +2,24 @@ import { type CreditReport } from '@shared/types';
 import { INSIGHTS } from '@/src/consts';
 import { Text } from '@/src/components/ui/text';
 import { cn } from '../utils';
+import csIcon from './assets/cs-icon.svg';
 import { ParsedInsightCard } from './parsed-insight-container';
 
 interface InsightsContainerProps {
   data: CreditReport | undefined;
   isLoading: boolean;
   isError: boolean;
-  loadingIcon: string;
 }
 
 export function InsightsContainer({
   data,
   isLoading,
   isError,
-  loadingIcon,
 }: InsightsContainerProps) {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-full animate-spin">
-        <img src={loadingIcon} alt="Credit Score Logo" className="w-10 h-10" />
+        <img src={csIcon} alt="Credit Score Logo" className="w-10 h-10" />
       </div>
     );
   }
@@ -28,7 +27,7 @@ export function InsightsContainer({
   if (isError || !data) {
     return (
       <div className="flex justify-center items-center h-full">
-        <Text type="h2" colour="brand1-step0" variant="strong" fontSize="L">
+        <Text type="p" colour="brand1-step0" variant="strong" fontSize="L">
           An error occurred while loading your credit report
         </Text>
       </div>

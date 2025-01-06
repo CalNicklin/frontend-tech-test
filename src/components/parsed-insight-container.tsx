@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { type INSIGHTS } from '@/src/consts';
 import { determineStatus } from '@/src/lib';
 import { type CreditReport } from '../types';
@@ -25,6 +26,13 @@ export function ParsedInsightCard({ data, insight }: ParsedInsightCardProps) {
   const validateData = insight.schema.safeParse(getInsightData(data, insight));
 
   if (!validateData.success) {
+    Sentry.captureException(validateData.error, {
+      extra: {
+        data,
+        insight,
+      },
+    });
+
     return (
       <InsightCard
         heading={insight.title}

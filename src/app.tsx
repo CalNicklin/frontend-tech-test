@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
+import * as Sentry from '@sentry/react';
 import { Text } from './components/ui/text';
 import { InsightsContainer } from './components/insight-container';
 import { api } from './api/api';
-import csIcon from './assets/cs-icon.svg';
 
 export function App() {
   const { data, isError, error, isLoading } = useQuery({
@@ -11,7 +11,7 @@ export function App() {
   });
 
   if (error) {
-    console.error(error);
+    Sentry.captureException(error);
   }
 
   return (
@@ -34,7 +34,6 @@ export function App() {
           data={data}
           isLoading={isLoading}
           isError={isError}
-          loadingIcon={csIcon}
         />
       </div>
     </main>
@@ -43,4 +42,3 @@ export function App() {
 
 // Drawer function
 // JOURNAL
-// CI
