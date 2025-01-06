@@ -1,4 +1,4 @@
-import { ImpactLevels } from '@/shared/types';
+import { ImpactLevels } from '@/types';
 import {
   CreditUsageInsightSchema,
   ElectoralRollInsightSchema,
@@ -13,7 +13,7 @@ export const INSIGHTS = {
     description: 'Being on the electoral roll can improve your score',
     impact: ImpactLevels.Medium,
     schema: ElectoralRollInsightSchema,
-    action: true
+    action: true,
   },
   publicInfo: {
     id: 'public-information',

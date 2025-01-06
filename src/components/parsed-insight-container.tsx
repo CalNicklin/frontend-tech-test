@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react';
-import { type INSIGHTS } from '@/src/consts';
-import { determineStatus } from '@/src/lib';
+import { type INSIGHTS } from '@/consts';
+import { determineStatus } from '@/lib';
 import { type CreditReport } from '../types';
 import { InsightCard } from './insight-card';
 

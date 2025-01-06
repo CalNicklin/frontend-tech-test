@@ -1,4 +1,3 @@
-
 import { config } from 'dotenv';
 
 // Try to load from .env.test first

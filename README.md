@@ -10,11 +10,13 @@ A React application built with TypeScript and Vite, implementing a Server-Driven
 ## Setup
 
 1. Install dependencies:
+
 ```
 pnpm install
 ```
 
 2. Create a `.env` file in the root directory with the following variables:
+
 ```
 NODE_ENV=development
 PORT=3000
@@ -26,11 +28,13 @@ API_URL=http://localhost:3000
 ## Development
 
 Run both the client and server in development mode:
+
 ```
 pnpm dev
 ```
 
 Or run them separately:
+
 ```
 # Client only
 pnpm dev:client
@@ -40,6 +44,7 @@ pnpm dev:server
 ```
 
 ## Building
+
 ```
 # Build both client and server
 pnpm build
@@ -49,6 +54,7 @@ pnpm build:server
 ```
 
 ## Project Structure
+
 ```
 ├── client/              # Client-side code
 ├── server/           # Node.js server (Hono)
@@ -61,7 +67,7 @@ pnpm build:server
 The project uses TypeScript path aliases for cleaner imports:
 
 - `@/*` - Root directory
-- `@client/*` - Client source files
+- `@/*` - Client source files
 - `@server/*` - Server source files
 - `@shared/*` - Shared utilities and types
 
@@ -81,6 +87,7 @@ Environment variables are validated at runtime using Zod. The application will e
 ## Linting
 
 The project uses Vercel's ESLint configuration. Run linting with:
+
 ```
 pnpm lint
 ```

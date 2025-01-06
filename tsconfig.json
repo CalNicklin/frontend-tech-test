@@ -1,23 +1,18 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "rootDir": ".",
+    "outDir": "dist",
     "baseUrl": ".",
     "composite": true,
     "types": ["node", "jest"],
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
     "paths": {
-      "@/*": ["./*"],
-      "@client/*": ["./src/*"],
-      "@shared/*": ["./shared/*"],
-      "@server/*": ["./server/*"]
+      "@/*": ["./src/*"],
     },
 
     /* Bundler mode */
@@ -33,5 +28,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-  }
+    "useDefineForClassFields": true
+  },
+  "include": [
+    "src",
+    "shared",
+    "e2etests/visual-test.test.tsx",
+    "playwright.config.ts",
+    "e2etests/**/*.json",
+    "pact.config.js",
+    "vitest.setup.ts",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ],
 }

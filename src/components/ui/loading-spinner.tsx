@@ -1,4 +1,4 @@
-import csIcon from '@client/assets/cs-icon.svg';
+import csIcon from '@/assets/cs-icon.svg';
 
 export function LoadingSpinner() {
   return (

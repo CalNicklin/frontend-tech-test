@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { type ImpactLevels, type Statuses } from '@shared/types';
+import { type ImpactLevels, type Statuses } from '@/types';
 import { InsightDrawer } from './insight-drawer';
 import { Sheet, SheetTrigger } from './ui/sheet';
 import { InsightCardContent } from './insight-card-content';

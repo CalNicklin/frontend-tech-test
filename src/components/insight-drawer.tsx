@@ -6,9 +6,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
-} from '@client/components/ui/sheet';
-import { Statuses } from '@/shared/types';
-import { cn } from '@client/utils';
+} from '@/components/ui/sheet';
+import { Statuses } from '@/types';
+import { cn } from '@/utils';
 import { api } from '../api/api';
 import { Text } from './ui/text';
 import { OnTrackTag } from './on-track-tag';
@@ -114,7 +114,6 @@ export function InsightDrawer({
             variant="strong"
             colour="brand1-step0"
             fontSize="L"
-
             className="text-left mb-XS"
           >
             {textContent.title}

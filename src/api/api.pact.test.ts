@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { PactV3, MatchersV3 } from '@pact-foundation/pact';
-import { env } from '@client/env';
-import mockReport from '@/e2etests/mocks/credit-response.json';
+import { env } from '@/env';
+import mockReport from '../../e2etests/mocks/credit-response.json';
 import { api } from './api';
 
 const provider = new PactV3({

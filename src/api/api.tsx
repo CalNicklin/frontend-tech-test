@@ -1,4 +1,4 @@
-import { env } from '@client/env';
+import { env } from '@/env';
 import type { CreditReport, InsightsReport } from '../types';
 import { CreditReportSchema, InsightsReportSchema } from '../schemas';
 

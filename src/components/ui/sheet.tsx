@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
-import close from '@client/assets/close.svg';
-import { cn } from '@client/utils';
+import close from '@/assets/close.svg';
+import { cn } from '@/utils';
 
 const Sheet = SheetPrimitive.Root;
 

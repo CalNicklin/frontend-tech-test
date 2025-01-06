@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@client/utils';
+import { cn } from '@/utils';
 
 const baseClasses = cn('flex items-center justify-center');
 

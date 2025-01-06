@@ -1,4 +1,4 @@
-import { type ImpactLevels, type Statuses } from '@/shared/types';
+import { type ImpactLevels, type Statuses } from '@/types';
 import { cn } from '../utils';
 import { Card } from './ui/card';
 import { ImpactTag } from './impact-tag';

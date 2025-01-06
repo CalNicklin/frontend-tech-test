@@ -1,4 +1,4 @@
-import { cn } from '@client/utils';
+import { cn } from '@/utils';
 import { Pill, type PillVariantProps } from './pill';
 import { Text, type TextVariantProps } from './text';
 

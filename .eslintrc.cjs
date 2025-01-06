@@ -1,7 +1,6 @@
 const { resolve } = require('node:path');
 
-const appProject = resolve(__dirname, './tsconfig.app.json');
-const nodeProject = resolve(__dirname, './tsconfig.node.json');
+const appProject = resolve(__dirname, './tsconfig.json');
 
 module.exports = {
   root: true,
@@ -11,12 +10,12 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/react'),
   ],
   parserOptions: {
-    project: [appProject, nodeProject],
+    project: [appProject],
   },
   settings: {
     'import/resolver': {
       typescript: {
-        project: [appProject, nodeProject],
+        project: [appProject],
       },
     },
   },

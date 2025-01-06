@@ -1,4 +1,4 @@
-import { type ImpactLevels } from '@shared/types';
+import { type ImpactLevels } from '@/types';
 import { Tag } from './ui/tag';
 
 interface ImpactTagProps {
