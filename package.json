@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "test": "pnpm run test:unit && pnpm run test:pact && pnpm run test:playwright",
     "test:pact": "vitest --run src/api/api.pact.test.ts",
-    "test:playwright": "exec playwright test",
+    "test:playwright": "exec playwright test --update-snapshots",
     "test:unit": "vitest --run --exclude \"src/**/*.pact.test.ts\"",
     "typecheck": "tsc -b"
   },
